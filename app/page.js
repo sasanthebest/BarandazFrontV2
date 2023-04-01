@@ -5,5 +5,11 @@ import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  return <main className={styles.main}>salam</main>;
+  return (
+    <main className={styles.main}>
+      {data.results.map((ad) => (
+        <li>{ad.title}</li>
+      ))}
+    </main>
+  );
 }
