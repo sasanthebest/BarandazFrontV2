@@ -22,7 +22,7 @@ const Footer = () => {
           </Link>
         </li>
         <li className={styles.Footer__icon}>
-          <Link className={styles.NavButton} href="/navtest">
+          <Link className={styles.NavButton} href="/ads">
             <FaSkyatlas size="1.5em"></FaSkyatlas>
           </Link>
         </li>
