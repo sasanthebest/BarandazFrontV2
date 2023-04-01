@@ -1,10 +1,8 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "./page.module.css";
+import getAllAds from "@/services/getAllAds";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default async function Home() {
+  const data = await getAllAds();
   return (
     <main className={styles.main}>
       {data.results.map((ad) => (
