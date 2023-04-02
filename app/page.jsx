@@ -1,13 +1,11 @@
 import styles from "./page.module.css";
 import getAllAds from "@/services/getAllAds";
+import AdsBody from "@/components/body/AdsBody";
 
 export default async function Home() {
-  const data = await getAllAds();
   return (
     <main className={styles.main}>
-      {data.results.map((ad) => (
-        <li>{ad.title}</li>
-      ))}
+      <AdsBody promise={getAllAds()} />
     </main>
   );
 }

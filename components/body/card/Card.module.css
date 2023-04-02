@@ -1,0 +1,117 @@
+.card {
+    /* background: olivedrab; */
+    min-height: 25vh;
+    /* box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); */
+    /* border-radius: 0.5rem; */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.Image {
+    display: block;
+    /* because of   layout="responsive" in Image component*/
+    position: relative;
+    z-index: 50;
+}
+
+.img {
+    border-radius: 0.5rem;
+}
+
+
+
+.saveIcon {
+    background: linear-gradient(to right bottom,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.5));
+    position: absolute;
+    height: 1.3em;
+    width: 1.5em;
+    top: 1%;
+    left: 1%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 55;
+}
+
+.saveIcon2 {
+    background: linear-gradient(to right bottom,
+            rgba(14, 13, 13, 0.9),
+            rgba(14, 13, 13, 0.5));
+    position: absolute;
+    height: 1.3em;
+    width: 1.5em;
+    top: 1%;
+    left: 1%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 55;
+}
+
+.Icon {
+    color: black;
+}
+
+.Icon2 {
+    color: white;
+}
+
+.city {
+    background: linear-gradient(to right bottom,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.5));
+    position: absolute;
+    padding: 0 1% 0 1%;
+    top: 73%;
+    left: 1%;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 54;
+
+}
+
+.category {
+    background: linear-gradient(to right bottom,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.5));
+    position: absolute;
+    padding: 0 1% 0 1%;
+    top: 86%;
+    left: 1%;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 55;
+    margin: 2% 0 1% 0;
+}
+
+.description {
+    /* background: rgb(67, 209, 245); */
+    height: 7vh;
+    line-height: 1.2rem;
+    padding: 0 1% 0 1%;
+    font-size: 0.8rem;
+
+}
+
+.description p {
+    margin: 0;
+}
+
+.time {
+    /* white-space: nowrap;
+ 
+  overflow: hidden;
+  text-overflow: ellipsis; */
+    padding: 0 1% 0 1%;
+    font-size: smaller;
+    font-family: "faNam2";
+}
