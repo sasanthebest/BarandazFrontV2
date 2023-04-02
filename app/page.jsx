@@ -5,7 +5,7 @@ import AdsBody from "@/components/body/AdsBody";
 export default async function Home() {
   return (
     <main className={styles.main}>
-      <AdsBody promise={getAllAds()} />
+      <AdsBody promise={getAllAds([])} />
     </main>
   );
 }

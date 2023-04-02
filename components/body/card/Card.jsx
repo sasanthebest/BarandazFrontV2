@@ -9,7 +9,7 @@ import DesciptionWrapper from "./DesciptionWrapper";
 import TimeWraper from "./TimeWraper";
 //styles
 import styles from "./Card.module.css";
-import CategoryBadge from "./Category";
+import CategoryBadge from "./CategoryBadge";
 
 const Card = ({ item }) => {
   return (

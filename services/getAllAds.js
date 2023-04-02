@@ -1,7 +1,7 @@
-import { allAds } from "./urls";
-const getAllAds = async () => {
+import { allAds, filteredAds } from "./urls";
+const getAllAds = async (adsQuery) => {
   try {
-    const res = await fetch(allAds, { next: { revalidate: 5 } });
+    const res = await fetch(filteredAds(adsQuery), { next: { revalidate: 5 } });
     return res.json();
   } catch (error) {
     console.log(error);

@@ -3,6 +3,14 @@ export const allAds = `${domain}/pollads/`;
 export const singleAd = (id) => `${domain}/pollads/${id}`;
 export const categories = `${domain}/categories/`;
 
-export const filteredAds = ({ param, value }) => {
-  return `${domain}/pollads/?${param}=${value}`;
+export const filteredAds = (queryPrametrs) => {
+  if (queryPrametrs === "undefined") {
+    return `${domain}/pollads/`;
+  }
+  const queryString = [];
+  queryPrametrs.forEach((el) => {
+    const query = `${el.param}=${el.value}`;
+    queryString.push(query);
+  });
+  return `${domain}/pollads/?${queryString.join("&")}`;
 };
