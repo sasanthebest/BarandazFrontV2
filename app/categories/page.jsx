@@ -6,7 +6,7 @@ export default async function page() {
   return (
     <div>
       {data.map((category) => (
-        <li>{category.title}</li>
+        <li key={category.id}>{category.title}</li>
       ))}
     </div>
   );

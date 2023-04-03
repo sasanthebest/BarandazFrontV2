@@ -8,7 +8,7 @@ export default async function AdsBody({ promise }) {
   return (
     <div className={styles.grid}>
       {data.results.map((ad) => (
-        <Card item={ad} />
+        <Card key={ad.id} item={ad} />
       ))}
     </div>
   );
