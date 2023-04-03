@@ -1,0 +1,110 @@
+.headercontent {
+    min-height: var(--headerHight);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    padding: 10px;
+    /* background: rgb(206, 143, 143); */
+}
+
+.headercontainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.headerlogo {
+    /* background: blueviolet; */
+    padding: 0;
+    margin: 0;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    /* background: yellow; */
+    margin-top: 10%;
+
+}
+
+.content p {
+    margin: 0;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    font-family: "vazir";
+}
+
+.inputgroup {
+    position: relative;
+}
+
+.input {
+    font-family: "vazir";
+    /* font-weight: bold; */
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    width: 80%;
+    padding: 2% 0 2% 0;
+    margin: 2% 0 2% 0;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /* z-index: 100; */
+}
+
+.eyeIcon {
+    position: absolute;
+    cursor: pointer;
+    overflow: visible;
+    color: #8888db;
+    margin-right: -10%;
+    margin-top: 3%;
+    color: #42d179;
+
+}
+
+@media screen and (min-width:741px) {
+    .eyeIcon {
+        margin-right: -7%;
+        margin-top: 4%;
+
+
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    .eyeIcon {
+        margin-right: -5%;
+        margin-top: 4%;
+
+
+    }
+
+}
+/*
+////////////////////////////////////////////////////////////////////////////////
+*/
+.login form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.login input,
+.login button {
+    padding: 0.5em;
+    border-radius: 15px;
+}
+
+
+.formerror{
+    color: red;
+}

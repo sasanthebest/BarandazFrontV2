@@ -14,3 +14,6 @@ export const filteredAds = (queryPrametrs) => {
   });
   return `${domain}/pollads/?${queryString.join("&")}`;
 };
+
+// user endpoints:
+export const signUp = `${domain}/users/`;
