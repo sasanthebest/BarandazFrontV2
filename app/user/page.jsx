@@ -6,7 +6,7 @@ import UserPageHeader from "@/components/user/UserPageHeader";
 import Footer from "@/components/layouts/Footer";
 import Modal from "@/components/UTILS/modal/Modal";
 import SignIn from "@/components/user/SignIn";
-import SignUp from "@/components/user/SignUp";
+import SignUp from "@/components/user/SignUp-In";
 import LogedInUser from "@/components/user/LogedInUser";
 
 const page = () => {
@@ -64,4 +64,4 @@ const page = () => {
   );
 };
 
-export default User;
+export default page;

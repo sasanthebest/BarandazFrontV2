@@ -16,4 +16,4 @@ export const filteredAds = (queryPrametrs) => {
 };
 
 // user endpoints:
-export const signUp = `${domain}/users/`;
+export const signUpIn = `${domain}/users/`;
