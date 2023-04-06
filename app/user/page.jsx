@@ -6,7 +6,7 @@ import UserPageHeader from "@/components/user/UserPageHeader";
 import Footer from "@/components/layouts/Footer";
 import Modal from "@/components/UTILS/modal/Modal";
 import SignIn from "@/components/user/SignIn";
-import SignUp from "@/components/user/SignUp-In";
+import SignUp from "@/components/user/SignUp";
 import LogedInUser from "@/components/user/LogedInUser";
 
 const page = () => {

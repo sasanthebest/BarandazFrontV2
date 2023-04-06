@@ -1,16 +1,23 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./User.module.css";
-import { useForm } from "react-hook-form";
+import ShowPasword from "./ShowPasword";
+import { set, useForm } from "react-hook-form";
 import * as y from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Timer from "./timer";
 
 const schema = y.object({
-  token: y.string().required("لطفا شماره تلفن را وارد نمایید"),
+  username: y
+    .string()
+    .required("لطفا شماره تلفن را وارد نمایید")
+    .matches(
+      "^(\\+98|0)?9\\d{9}$",
+      "لطفا شماره تلفن را به صورت صحیح وارد نمایید"
+    ),
 });
 
-const SingIn = ({ phone, onSubmit }) => {
+const SignUp = ({ onSubmit }) => {
   const [time, setTime] = useState(0);
   const {
     reset,
@@ -30,17 +37,15 @@ const SingIn = ({ phone, onSubmit }) => {
         })}
         method="POST"
       >
-        <p>ورود به حساب کاربری</p>
+        <p>ثبت نام</p>
         <div className={styles.form_group}>
-          <label htmlFor="username">
-            را وارد کنید{phone}کد پیامک شده به شماره تلفن
-          </label>
+          <label htmlFor="username">نام کاربری</label>
           <input
-            {...register("token", { required: true, minLength: 4 })}
+            {...register("username", { required: true, minLength: 4 })}
             autoFocus
-            name="token"
+            name="username"
             type="text"
-            placeholder="کد تایید  4 رقمی"
+            placeholder="شماره موبایل"
             className={styles.input}
             autoComplete="on"
           />
@@ -53,10 +58,10 @@ const SingIn = ({ phone, onSubmit }) => {
         ) : (
           <button onClick={() => setTime(15)}>تایید</button>
         )} */}
-        <button>تایید</button>
+        <button onClick={() => setTime(15)}>تایید</button>
       </form>
     </div>
   );
 };
 
-export default SingIn;
+export default SignUp;

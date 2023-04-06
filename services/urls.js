@@ -16,4 +16,10 @@ export const filteredAds = (queryPrametrs) => {
 };
 
 // user endpoints:
-export const signUpIn = `${domain}/users/`;
+export const signUp = `${domain}/users/`;
+export const signIn = `${domain}/users/me/`;
+export const createJwtToken = `${domain}/token/`;
+
+//phone validations endpoints
+export const sendValidationToken = `${domain}/send_validation_token/`;
+export const validateToken = `${domain}/validate_token/`;
