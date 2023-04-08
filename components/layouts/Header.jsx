@@ -8,13 +8,13 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <div className={styles.Header__content}>
-      <Image
+      {/* <Image
         src="/logo.svg"
         alt="logo"
         className={styles["App-logo"]}
         width={100}
         height={100}
-      ></Image>
+      ></Image> */}
       <HeaderSearch></HeaderSearch>
       <Navbar></Navbar>
     </div>

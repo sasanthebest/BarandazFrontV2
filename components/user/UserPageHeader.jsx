@@ -5,7 +5,7 @@ const UserPageHeader = () => {
   return (
     <div className={styles.headercontent}>
       <div className={styles.headercontainer}>
-        <img src="/logo.jpg" className={styles.headerlogo}></img>
+        {/* <img src="/logo.jpg" className={styles.headerlogo}></img> */}
       </div>
     </div>
   );

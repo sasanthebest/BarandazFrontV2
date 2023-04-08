@@ -4,10 +4,9 @@ import SignUp from "@/components/user/SignUp";
 import sendValidationSms from "@/services/sendValidationSms";
 import signUpInUser from "@/services/singUpInUser";
 import validateSms from "@/services/validateSms";
-
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-
+import { redirect } from "next/navigation";
 export default function page() {
   const [toLogin, setToLogin] = useState(false);
   const [username, setUsername] = useState(null);
@@ -18,13 +17,14 @@ export default function page() {
     setToLogin(true);
   };
 
-  const getUser = async (data) => {
+  const getUser = async () => {
     const validateRes = await validateSms({
-      token: data.token,
+      token: token,
       username: username,
     });
     if (validateRes === 200) {
       const res = await signUpInUser({ username: username });
+      redirect("/user/");
     }
   };
   const handleSignUpSubmit = (data) => {
@@ -33,16 +33,19 @@ export default function page() {
   };
 
   useEffect(() => {
-    sendValidationsms(data.username);
+    sendValidationsms();
   }, [username]);
 
-  if (!toLogin) return <SignUp onSubmit={handleSignUpSubmit(data)} />;
+  useEffect(() => {
+    getUser();
+  }, [token]);
+
+  if (!toLogin) return <SignUp onSubmit={(data) => handleSignUpSubmit(data)} />;
   console.log("console2:", username);
   return (
     <SingIn
       onSubmit={(data) => {
         setToken(data.token);
-        getUser(data);
       }}
       phone={username}
     />
