@@ -3,9 +3,12 @@ import Image from "next/image";
 
 import styles from "./Layout.module.css";
 import HeaderSearch from "./HeaderSearch";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+import { getCurrentUser } from "@/services/getCurrentUser";
 
-const Header = () => {
+
+const Header =async () => {
+  const currentUser=await getCurrentUser()
   return (
     <div className={styles.Header__content}>
       {/* <Image
@@ -15,8 +18,8 @@ const Header = () => {
         width={100}
         height={100}
       ></Image> */}
-      <HeaderSearch></HeaderSearch>
-      <Navbar></Navbar>
+      {/* <HeaderSearch></HeaderSearch> */}
+      <Navbar/>
     </div>
   );
 };

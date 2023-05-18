@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./User.module.css";
+import styles from './User.module.css'
 import ShowPasword from "./ShowPasword";
 import { set, useForm } from "react-hook-form";
 import * as y from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Timer from "./timer";
+
 
 const schema = y.object({
   username: y
@@ -32,7 +32,7 @@ const SignUp = ({ onSubmit }) => {
     <div className={styles.content}>
       <form
         onSubmit={handleSubmit((data) => {
-          onSubmit(data);
+          
           reset();
         })}
         method="POST"
