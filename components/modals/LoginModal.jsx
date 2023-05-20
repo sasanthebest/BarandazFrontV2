@@ -15,6 +15,7 @@ import Inpute from "../Inpute";
 import Heading from "../Heading";
 import Button from "../Button";
 import axios from "axios";
+import apiClient from "@/services/api-client";
 
 const Phoneschema = y.object({
   phone: y.string().required("لطفا شماره تلفن را وارد نمایید").length(11,'شماره تلفن باید 11 رقم باشد '),
@@ -63,13 +64,14 @@ const LoginModal = () => {
 
   const onSubmit=(data)=>{
     setPhone(data?.phone)
-    axios.post(sendValidationToken,data)
+    axios.post(`http://127.0.0.1:8000/${sendValidationToken}`,data)
 
     .then((res)=>{
         toast.success("کد تایید ارسال شد")  
         setStep('code')   
     })
     .catch((err)=>{
+      console.log(err)
       toast.error('خطایی رخ داده است')
     })
   
@@ -79,7 +81,7 @@ const LoginModal = () => {
 
   const onSubmit2=(data)=>{
     
-    signIn('credentials',{...data,phone:phone,redirect:true,callbackUrl:'/'})
+  signIn('credentials',{...data,phone:phone,redirect:true,callbackUrl:'/'})
     .then((res)=>{
       if (res.ok){
         toast.success("ورود با موفقیت انجام شد")

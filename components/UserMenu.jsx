@@ -85,7 +85,7 @@ const UserMenu = ({currentUser,userInfo}) => {
             {currentUser ?(
               <>
           
-              <MenuItem icon={HiUser} label={userInfo.username}/>
+              <MenuItem label={userInfo?.username} onClick={()=>router.push('/user/myAccount')}/>
               <hr />
               <MenuItem label="آگهی های من" onClick={()=>router.push('/user/myAds')} />
               <hr />

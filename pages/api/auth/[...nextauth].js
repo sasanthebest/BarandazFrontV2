@@ -16,8 +16,9 @@ export const authOptions = {
         async authorize(credentials){
             const {phone,code}=credentials
 
-            const res=axios.post(validateToken,{username:phone,token:code})
+            const res=axios.post(`http://127.0.0.1:8000/${validateToken}`,{username:phone,token:code})
             .then((res)=>{
+              
 
               if (res.status===200){
   
