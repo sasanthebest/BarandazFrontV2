@@ -12,7 +12,7 @@
     display: block;
     /* because of   layout="responsive" in Image component*/
     position: relative;
-    z-index: 50;
+    z-index: 20;
 }
 
 .img {

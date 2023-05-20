@@ -6,9 +6,9 @@ import MenuItem from "./MenuItem";
 import useLoginModal from "@/hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import {HiUser} from 'react-icons/hi2'
+const UserMenu = ({currentUser,userInfo}) => {
 
-const UserMenu = ({currentUser}) => {
-  console.log("currentUser:",currentUser)
 
   const loginModal = useLoginModal()
   const router=useRouter()
@@ -22,7 +22,7 @@ const UserMenu = ({currentUser}) => {
   },[currentUser,loginModal])
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="flex flex-row items-center gap-3">
         <div
           onClick={onRent}
@@ -71,23 +71,30 @@ const UserMenu = ({currentUser}) => {
           absolute
           rounded-xl
           shadow-md
-          w-[60vw]
-          md:w-3/4
+          w-full
+          
           bg-white
           overflow-hidden
           left-0
           top-12
           text-sm
+          z-30
           "
         >
-          <div className="flex flex-col cursor-pointer">
+          <div className="flex flex-col cursor-pointer w-full">
             {currentUser ?(
               <>
-              <p>{currentUser.username}</p>
-              <MenuItem label="آگهی های من" onClick={()=>router.push('/trips')} />
-              <MenuItem label="حجره های من" onClick={()=>router.push('/myListings')} />
-              <MenuItem label="نشان شده ها" onClick={()=>router.push('/myreserves')} />
-              <MenuItem label="بازدیدهای اخیر" onClick={()=>router.push('/favorites')} />
+          
+              <MenuItem icon={HiUser} label={userInfo.username}/>
+              <hr />
+              <MenuItem label="آگهی های من" onClick={()=>router.push('/user/myAds')} />
+              <hr />
+              <MenuItem label="حجره های من" onClick={()=>router.push('/user/myChambers')} />
+              <hr />
+              <MenuItem label="نشان شده ها" onClick={()=>router.push('/user/myBookmarks')} />
+              <hr />
+              <MenuItem label="بازدیدهای اخیر" onClick={()=>router.push('/user/myLastSeens')} />
+              <hr />
               <MenuItem label="خروج" onClick={()=>signOut()} />
               </>
             ):

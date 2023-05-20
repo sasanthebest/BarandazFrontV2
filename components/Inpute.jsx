@@ -11,10 +11,12 @@ const Inpute = ({
   disabled,
   formatPrice,
   required,
+  onChange,
   register,
-  errors,}) => {
-  const { onBlur, name, ref } = register(id,{required}); 
+  errors}) => {
+
   const [price,setPrice]=useState('')
+ 
 
   const handleChange=(e)=>{
     e.target.value ? setPrice(e.target.value):setPrice('هزار تومان ')
@@ -22,7 +24,7 @@ const Inpute = ({
 
   
   return (
-    <div className="w-full relatice">
+    <div className="w-full relative">
       {formatPrice && (
         <BiDollar
           size={24}
@@ -33,15 +35,13 @@ const Inpute = ({
       <input
         id={id}
         disabled={disabled}
-        onChange={(e)=>handleChange(e)} 
-        onBlur={onBlur} // assign onBlur event
-        name={name} // assign name prop
-        ref={ref} // assign ref prop
+        onChange={onChange} 
+        {...register(id)}
         placeholder=" "
         type={type}
-        // min={type ==='number' ? 1000 :undefined}
         className={`
             peer
+            
             w-full
             p-4   
             pt-3
@@ -79,6 +79,7 @@ const Inpute = ({
       >
         {label}
       </label>
+      <p className="text-rose-500">{errors[id]?.message}</p>
       {type==='number'&&(
 
         <div className="left-4">{price}</div>

@@ -17,7 +17,7 @@ export const categories = `${domain}/categories/`;
 
 // user endpoints:
 export const signUp = `${domain}/users/`;
-export const signIn = `${domain}/users/me/`;
+export const userInfo = `${domain}/users/me/`;
 export const createJwtToken = `${domain}/token/`;
 
 //phone validations endpoints

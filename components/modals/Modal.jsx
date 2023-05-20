@@ -10,10 +10,7 @@ const Modals = ({
   title,
   body,
   footer,
-  actionLabel,
-  disabled,
-  secondaryAction,
-  secondaryActionLabel,}) => {
+disabled}) => {
   const [showModal, setShowModal] = useState(isOpen);
   useEffect(() => {
     setShowModal(isOpen);
@@ -29,15 +26,6 @@ const Modals = ({
     }, 300);
   }, [disabled, onClose]);
 
-  const handleSubmit = useCallback(() => {
-    if (disabled) return;
-    onSubmit();
-  }, [disabled, onSubmit]);
-
-  const handleSecondaryAction = useCallback(() => {
-    if (disabled || !secondaryAction) return;
-    secondaryAction();
-  }, [disabled, secondaryAction]);
 
   if (!isOpen) return null;
   return (
@@ -149,28 +137,7 @@ const Modals = ({
               {/* FOOTER */}
 
               <div className="flex flex-col gap-2 p-6">
-                <div
-                  className="
-                    flex flex-row
-                    items-center
-                    gap-4
-                    w-full
-                "
-                >
-                  {secondaryAction && secondaryActionLabel && (
-                    <Button
-                      outline
-                      disabled={disabled}
-                      onClick={handleSecondaryAction}
-                      label={secondaryActionLabel}
-                    />
-                  )}
-                  <Button
-                    disabled={disabled}
-                    label={actionLabel}
-                    onClick={handleSubmit}
-                  />
-                </div>
+                
                 {footer}
               </div>
             </div>

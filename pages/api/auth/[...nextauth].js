@@ -10,34 +10,55 @@ export const authOptions = {
     CredentialsProvider({
         name:'credentials',
         credentials: {
-            username: { label: "Username", type: "text", placeholder: "شماره تلفن" },
-            token:{label:'token',type:'text',placeholder:'کد تایید'}
+            phone: { label: "username", type: "text", placeholder: "شماره تلفن" },
+            code:{label:'token',type:'text',placeholder:'کد تایید'}
           },
         async authorize(credentials){
-            const {username,token}=credentials
+            const {phone,code}=credentials
 
-            // if (!credentials.username || !credentials.token){
-            //     throw new Error('invalid credentials')
-            // }
+            const res=axios.post(validateToken,{username:phone,token:code})
+            .then((res)=>{
 
-            const res=await axios.post(validateToken,{username:username,token:token})
+              if (res.status===200){
+  
+                const user=res.data
+                    if (res.status==200 && user){
+                     return user
+                   }
+                  }
+            })
+            .catch((err)=>{
 
-            const user=await res.data
-            if (res.status==200 && user){
-              return res.data
-            }
-            return null
+              if (err.status===404){
+                return err
+
+              }    
+              
+            })
+
+            return res
+          
         }
-    }
-    )
+    })
   ],
-    pages:{
-        signIn:'/'
+  callbacks: {
+    async jwt({ token, user }) {
+        return { ...token, ...user };
+    },
+    async session({ session, token, user }) {
+        // Send properties to the client, like an access_token from a provider.
+        session.user = token;      
+        return session;
+    }
+  },
+  pages:{
+        signIn:'/enter'
     },
     // debug:process.env.NODE_ENV=='development',
-    session:{
+  session:{
         strategy:'jwt'
     },
+  
     // secret:process.env.NEXTAUTH_SECRET,
 }
 

@@ -4,10 +4,12 @@ import Container from "./Container";
 import Logo from "./Logo";
 
 import UserMenu from "./UserMenu";
+import { getSession, useSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
 
 // import Category from "./Category";
 
-const NavBar = ({currentUser}) => {
+const NavBar =({currentUser,userInfo}) => {
   return (
     <div className="w-full bg-white shadow-sm ">
       <div className="py4 border-b-[1px] m-5">
@@ -32,7 +34,7 @@ const NavBar = ({currentUser}) => {
             >
           <Logo />
           {/* <Search /> */}
-          <UserMenu currentUser={currentUser} />
+          <UserMenu currentUser={currentUser} userInfo={userInfo} />
         </div>
     </div>
       </div>

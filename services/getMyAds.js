@@ -1,11 +1,14 @@
 import { myAds } from "./urls";
 import fetchClient from "./getCurrentUser";
+import apiClient from "./api-client";
 const getMyAds = async () => {
-  const res = await fetchClient(myAds);
-  if (!res.ok) {
-    return [];
-  }
-  return res.json();
+  apiClient.get(myAds)
+  .then(res=>{
+    return res.data
+  })
+  .catch(err=>{
+    return null
+  })
 };
 
 export default getMyAds;

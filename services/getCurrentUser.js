@@ -1,10 +1,5 @@
-
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
-import axios from "axios"
-
-import { getServerSession } from "next-auth/next"
-import { createJwtToken, signIn } from "./urls"
-
+import { getServerSession } from "next-auth"
 
 
 export async function getSession() {
@@ -13,7 +8,6 @@ export async function getSession() {
 
 export async function getCurrentUser() {
   const session=await getSession()
-
 
   if (!session?.user){
     return null

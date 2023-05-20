@@ -7,6 +7,8 @@ import NavBar from "@/components/Navbar";
 import Heading from "@/components/Heading";
 import ClientOnly from "@/components/ClientOnly";
 import Provider from "@/components/Provider";
+import { getCurrentUserInfo } from "@/services/getCurrentUserInfo";
+
 
 export const metadata = {
   title: "بارانداز - تجارت خانه ای به وسعت ایران",
@@ -15,13 +17,15 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const currentUser=await getCurrentUser()
+  const userInfo=await getCurrentUserInfo()
+ 
 
   return (
     <html lang="fa" dir="rtl" charSet="utf-8">
       <body>
         <Provider>
-        <NavBar currentUser={currentUser}/>
-        {/* <LoginModal/> */}
+        <NavBar userInfo={userInfo} currentUser={currentUser}/>
+        <LoginModal/>
         {children}
         </Provider>
       </body>

@@ -1,11 +1,11 @@
 import getAllAds from "@/services/getAllAds";
 import Container from "@/components/Container";
 import Card from "@/components/body/card/Card";
+import { getCurrentUserInfo } from "@/services/getCurrentUserInfo";
 export default async function page() {
 
 
   const allAds = await getAllAds([]);
-
   return (
     <Container>
       <div className="text-center text-neutral-500 mt-5">بارانداز، تجارت خانه ای به وسعت ایران</div>
@@ -21,9 +21,9 @@ export default async function page() {
           gap-8
         "
       >
-        {/* {allAds.results?.map((ad) => (
+        {allAds.results?.map((ad) => (
           <Card key={ad.id} item={ad} />
-          ))} */}
+          ))}
       </div>
 
     </Container>

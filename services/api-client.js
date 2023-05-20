@@ -1,12 +1,18 @@
 import axios from "axios";
-const localStorageKey = "Authorization";
-const item =
-  typeof window !== "undefined" ? localStorage.getItem(localStorageKey) : null;
-const apiClient = axios.create({
-  headers: {
-    Authorization: `${item}`,
-  },
-});
+
+import { authOptions } from "@/pages/api/auth/[...nextauth]"
+import { getServerSession } from "next-auth/next"
+
+const session=async ()=>{
+  const s=await getServerSession(authOptions)
+  console.log('s:',s.user)
+  return s
+}
+// console.log("session::",session())
+
+const apiClient =axios.create({
+  
+})
 export default apiClient;
 
 axios.interceptors.response.use(null, (Error) => {
