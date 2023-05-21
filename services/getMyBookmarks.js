@@ -1,12 +1,14 @@
-import fetchClient from "./getCurrentUser";
+import apiClient from "./api-client";
 import { myBookmarks } from "./urls";
 
-const getMyBookmarks = async () => {
-  const res = await fetchClient(myBookmarks);
-  if (!res.ok) {
-    return [];
-  }
-  return res.json();
-};
 
-export default getMyBookmarks;
+export default async function getMyBookMarks(){
+  const data=await apiClient.get(myBookmarks)
+  .then((res)=>{
+    return res.data
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+  return data
+}

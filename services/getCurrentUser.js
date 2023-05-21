@@ -8,6 +8,7 @@ export async function getSession() {
 
 export async function getCurrentUser() {
   const session=await getSession()
+  
 
   if (!session?.user){
     return null

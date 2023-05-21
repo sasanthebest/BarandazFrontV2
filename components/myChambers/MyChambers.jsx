@@ -1,5 +1,3 @@
-
-
 import Image from 'next/image'
 import React from 'react'
 import Button from '../Button'
@@ -7,17 +5,19 @@ import {ImLocation2} from 'react-icons/im'
 import ArrowTiltle from '../ArrowTiltle'
 import { MdProductionQuantityLimits } from 'react-icons/md'
 import {RiShieldStarLine} from 'react-icons/ri'
+
 const MyChambers = ({data}) => {
   return (
     <div className='grid grid-cols-1 gap-5 '>
+        <div><Button small label="ثبت حجره ی جدید"/></div>
         {
         data.map((chamber)=>(
-            <div className='flex flex-row justify-between gap-6 border-b border-neutral-300 m-10 pb-3'>
-              
-                    <div className='flex flex-row gap-4'>
+            <div className='flex flex-col md:flex-row justify-between gap-6 border-b border-neutral-300 m-10 pb-3'>
+                
+                    <div className='flex flex-col md:flex-row gap-4'>
     
                     <div>
-                        <Image className='rounded-lg' width={100} height={100} src='/logoC.png'/>
+                        <Image className='rounded-full' width={100} height={100} src='/logoC.png'/>
                     </div>
                     <div className='flex flex-col border-r'>
 

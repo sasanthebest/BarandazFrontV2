@@ -27,7 +27,7 @@ export const validateToken ='/validate_token/';
 // user's stuff
 
 export const myAds = 'myads/';
-export const myBookmarks = '/bookmarks/';
+export const myBookmarks = 'bookmarks/';
 export const myChambers = 'mychambers/';
 // export const myNotes=
 // export const myRecentSeen

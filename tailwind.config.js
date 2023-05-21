@@ -5,6 +5,10 @@ module.exports = {
         "./pages/**/*.{js,ts,jsx,tsx,}",
         "./components/**/*.{js,ts,jsx,tsx,}",
     ],
+    variants: {
+      extend: {
+          display: ["group-hover"],
+      }},
     theme: {
       extend: {
         zIndex:{
