@@ -11,6 +11,7 @@ export const filteredAds = (queryParametrs) => {
     return `/pollads/?${queryString.join("&")}`;
   }
 };
+export const baseURL= "http://127.0.0.1:8000"
 export const allAds = '/pollads/';
 export const singleAd = (id) => `/pollads/${id}`;
 export const categories = '/categories/';
@@ -26,8 +27,8 @@ export const validateToken ='/validate_token/';
 
 // user's stuff
 
-export const myAds = 'myads/';
-export const myBookmarks = 'bookmarks/';
-export const myChambers = 'mychambers/';
+export const myAds = '/myads/';
+export const myBookmarks = '/bookmarks/';
+export const myChambers = '/mychambers/';
 // export const myNotes=
 // export const myRecentSeen

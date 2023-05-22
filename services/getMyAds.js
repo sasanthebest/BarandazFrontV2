@@ -1,15 +1,8 @@
 import { myAds } from "./urls";
-import apiClient from "./api-client";
+import  getApiclient  from '@/services/api-client';
 
-const getMyAds = async () => {
-  const data=apiClient.get(myAds)
-  .then(res=>{
-    return res.data
-  })
-  .catch(err=>{
-    return null
-  })
-  return data
+export default async function getMyAds() {
+  const data = await getApiclient(myAds)
+   return data
 };
 
-export default getMyAds;

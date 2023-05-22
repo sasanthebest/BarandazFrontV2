@@ -1,14 +1,7 @@
-import apiClient from "./api-client";
 import { myBookmarks } from "./urls";
+import  getApiclient from '@/services/api-client';
 
-
-export default async function getMyBookMarks(){
-  const data=await apiClient.get(myBookmarks)
-  .then((res)=>{
-    return res.data
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
+export default async function getMyBookMarks() {
+  const data = await getApiclient (myBookmarks)
   return data
 }
