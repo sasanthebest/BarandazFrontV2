@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "font";
-    src: url("/fonts/IRANSans(Fanum).ttf") format("woff2");
+    font-family: font;
+    src: url("/frontend/public/fonts/IRANSansWebFaNum.woff") format("woff2");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -14,7 +14,7 @@
     overflow: hidden;
     position: relative;
     margin-bottom: 0.5rem;
-    font-family: url("/fonts/IRANSans(Fanum).ttf");
+    font-family: font;
 }
 
 .Image {
@@ -24,9 +24,6 @@
     z-index: 20;
 }
 
-.img {
-    border-radius: 0.5rem;
-}
 
 
 

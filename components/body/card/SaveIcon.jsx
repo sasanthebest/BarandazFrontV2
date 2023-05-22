@@ -18,7 +18,7 @@ const SaveIcon = ({ item }) => {
       {
         <FaSkyatlas
           className={save && "text-rose-600"}
-          size="1.3em"
+          size={24}
         ></FaSkyatlas>
       }
     </div>

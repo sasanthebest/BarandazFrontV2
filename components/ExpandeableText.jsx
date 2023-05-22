@@ -2,7 +2,7 @@
 const ExpandableText = ({children}) => {
   const textSize = children.split("").length;
   const size=17
-  if (textSize <= size) return <div>{children}</div>;
+  if (textSize <= size) return <div className="text-sm">{children}</div>;
 //   if (textSize === size)
 //     return (
 //       <div>

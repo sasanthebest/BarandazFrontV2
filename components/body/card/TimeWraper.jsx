@@ -1,10 +1,10 @@
 import styles from "./Card.module.css";
 
-const TimeWraper = ({ item }) => {
+const TimeWraper = ({ time }) => {
   const date = new Date();
 
   const timeCreator = () => {
-    let created_at = Date.parse(`${item.created_at}`);
+    let created_at = Date.parse(`${time}`);
     let now = Date.now();
     let mytime = (now - created_at) / 1000;
     if (mytime >= 86400) {

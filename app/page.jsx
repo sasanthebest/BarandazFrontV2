@@ -12,18 +12,21 @@ export default async function page() {
     return (<EmptyState  title="آگهی یافت نشد" />)
   }
   return (
-    <Container>
+    
+    <>
       <div className="text-center text-neutral-500 mt-5">بارانداز، تجارت خانه ای به وسعت ایران</div>
-      <div className="
+      <div className="grid grid-cols-4">
+        <div className="col-span-1 bg-rose-400">side</div>
+        <div className="col-span-3 m-3">
+        <div className="
           pt-10
           grid
           grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-3
-          lg:grid-cols-4
-          xl:grid-cols-5
-          2xl:grid-cols-6
-          gap-8
+          md:grid-cols-2
+          lg:grid-cols-3
+          xl:grid-cols-4
+          2xl:grid-cols-5
+          gap-4
         "
       >
         {allAds?.results?.map((ad) => (
@@ -31,6 +34,9 @@ export default async function page() {
           ))}
       </div>
 
-    </Container>
+        </div>
+
+      </div>
+    </>
   );
 }
