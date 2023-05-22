@@ -1,17 +1,12 @@
-'use client'
 import React from "react";
-import Container from "./Container";
 import Logo from "./Logo";
-
 import UserMenu from "./UserMenu";
-import { getSession, useSession } from "next-auth/react";
-import { getServerSession } from "next-auth";
-
-// import Category from "./Category";
+import Button from "./Button";
+import HeaderSearch from "./layouts/HeaderSearch";
 
 const NavBar =({currentUser,userInfo}) => {
   return (
-    <div className="w-full bg-white shadow-sm ">
+    <div className="w-full bg-white shadow-sm">
       <div className="py4 border-b-[1px] m-5">
       <div
       className="
@@ -30,11 +25,17 @@ const NavBar =({currentUser,userInfo}) => {
                 justify-between
                 gap-3
                 md:gap-0
+                mb-3
               "
             >
           <Logo />
-          {/* <Search /> */}
+          <HeaderSearch/>
+          <div className="flex flex-row items-center gap-5">
           <UserMenu currentUser={currentUser} userInfo={userInfo} />
+          <Button small label="ثبت آگهی"/>
+          </div>
+
+
         </div>
     </div>
       </div>

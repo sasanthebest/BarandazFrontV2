@@ -1,6 +1,6 @@
 "use client"
 
-import { AiOutlineMenu } from "react-icons/ai";
+import { VscAccount } from "react-icons/vsc";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 import useLoginModal from "@/hooks/useLoginModal";
@@ -25,26 +25,6 @@ const UserMenu = ({currentUser,userInfo}) => {
     <div className="relative ">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={onRent}
-          className="
-            hidden
-            md:block
-            text-sm
-            font-normal
-            py-3
-            px-4
-            rounded-full
-            bg-rose-400
-            text-white
-            hover:bg-neutral-100
-            hover:text-neutral-600
-            transition
-            cursor-pointer
-          "
-        >
-          ثبت آگهی
-        </div>
-        <div
           onClick={() => setIsOpen(!isOpen)}
           className="
           p-4
@@ -54,14 +34,19 @@ const UserMenu = ({currentUser,userInfo}) => {
           border-neutral-200
           flex
           flex-row
-          gap-3
+          justify-center
+          items-center
+          gap-1
           rounded-full
           cursor-pointer
           hover:shadow-md
           transition
+          
+          text-neutral-400
         "
         >
-          <AiOutlineMenu />
+          <VscAccount size={20} />
+          <p className="text-xs">بارانداز من</p>
         </div>
       </div>
 
@@ -72,7 +57,6 @@ const UserMenu = ({currentUser,userInfo}) => {
           rounded-xl
           shadow-md
           w-full
-          
           bg-white
           overflow-hidden
           left-0
