@@ -1,11 +1,9 @@
+import getApiclient from "./api-client";
 import { categories } from "./urls";
 const getAllCategories = async () => {
-  try {
-    const res = await fetch(categories);
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
+  const res = await getApiclient(categories);
+  return res
+   
 };
 
 export default getAllCategories;

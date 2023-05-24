@@ -3,20 +3,30 @@ import Container from "@/components/Container";
 import Card from "@/components/body/card/Card";
 import { getCurrentUserInfo } from "@/services/getCurrentUserInfo";
 import EmptyState from "@/components/EmptyState";
+import Categories from "@/components/Categories";
+import getAllCategories from "@/services/getAllCategories";
 
 
 export default async function page() {
 
   const allAds = await getAllAds([]);
+  const allCategories=await getAllCategories()
+
   if (allAds?.results.length===0){
-    return (<EmptyState  title="آگهی یافت نشد" />)
+    return (
+      <>
+        <div className="text-center text-neutral-500 mt-5">بارانداز، تجارت خانه ای به وسعت ایران</div>
+        <EmptyState  title="آگهی یافت نشد" />
+      </>
+      )
   }
   return (
     
     <>
       <div className="text-center text-neutral-500 mt-5">بارانداز، تجارت خانه ای به وسعت ایران</div>
+      <Categories data={allCategories} />
       <div className="grid grid-cols-4">
-        <div className="col-span-1 bg-rose-400">side</div>
+        <div className="col-span-1 bg-rose-400 mt-3">side</div>
         <div className="col-span-3 m-3">
         <div className="
           pt-10
