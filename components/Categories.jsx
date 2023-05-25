@@ -11,14 +11,14 @@ const Categories = ({data}) => {
     <div className='overflow-x-auto overflow-hidden'>
         <div className='flex flex-row gap-4 pl-4 pr-4'>
             {
-                allParents.map((ca)=>(
-                <div className='flex flex-col gap-1 items-center p-2 cursor-pointer'>
+                allParents.map((ca,index)=>(
+                    <div key={ index} className='flex flex-col gap-1 items-center p-2 cursor-pointer'>
                     <GiFarmer size={25}/>
                     <div>{ca.title}</div>
                     
                     {   
-                        data.filter(items=>items.parent===ca.id).map((kid)=>(
-                            <p className='text-sm text-neutral-500'>{kid.title}</p>
+                        data.filter(items=>items.parent===ca.id).map((kid,index)=>(
+                            <p key={index} className='text-sm text-neutral-500'>{kid.title}</p>
                         ))
                         }
                 </div>

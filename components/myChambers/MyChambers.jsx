@@ -11,8 +11,8 @@ const MyChambers = ({data}) => {
     <div className='grid grid-cols-1 gap-5 '>
         <div><Button small label="ثبت حجره ی جدید"/></div>
         {
-        data.map((chamber)=>(
-            <div className='flex flex-col md:flex-row justify-between gap-6 border-b border-neutral-300 m-10 pb-3'>
+        data.map((chamber,index)=>(
+            <div key={index} className='flex flex-col md:flex-row justify-between gap-6 border-b border-neutral-300 m-10 pb-3'>
                 
                     <div className='flex flex-col md:flex-row gap-4'>
     

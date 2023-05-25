@@ -24,9 +24,10 @@ export default async function RootLayout({ children }) {
     <html lang="fa" dir="rtl" charSet="utf-8">
       <body>
         <Provider>
-        <NavBar userInfo={userInfo} currentUser={currentUser}/>
-        <LoginModal/>
-        {children}
+        <NavBar userInfo={userInfo} currentUser={currentUser}/> 
+         <LoginModal/>
+          {children}
+          <Footer/>
         </Provider>
       </body>
     </html>

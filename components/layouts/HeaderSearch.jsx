@@ -1,7 +1,7 @@
 import {CiSearch} from 'react-icons/ci'
 const HeaderSearch = () => {
   return (
-    <div className="">
+    <div className="lg:w-96 md:w-72 mobmax:w-full px-5">
     <CiSearch className=""/>
     <input type="text" className="
     text-xs
@@ -10,7 +10,6 @@ const HeaderSearch = () => {
     outline-none 
     bg-slate-100 
     rounded 
-    w-96 
     h-9 
     flex 
     flex-row " placeholder="جستجو"></input>
