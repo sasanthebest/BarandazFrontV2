@@ -1,13 +1,24 @@
-export default function DashboardLayout({ children }) {
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-      <div className="bg-rose-300 ">
-      <p className="">layout</p>
-      </div>
-      <div className="col-span-3">
+// 'use client'
+import SidebarContent  from "@/components/sidebar/SideBarContent";
+import SidebarContainer  from '@/components/sidebar/SidebarContainer';
+import SidebarBodyContainer  from '@/components/sidebar/SidebarBodyContainer';
+// import { useRouter } from "next/navigation";
+import Provider from './../../components/Provider';
 
-      {children}
-      </div>
-    </div>
+export default async function DashboardLayout({ children }) {
+  // const router=useRouter()
+  return (
+    <>
+    <SidebarContent>
+      
+         <SidebarContainer title="سایدبار" mobile={false}>
+          {/* <Categories data={allCategories}> </Categories> */}
+       </SidebarContainer>
+        <SidebarBodyContainer>  
+          {children}
+        </SidebarBodyContainer>
+      </SidebarContent>
+      
+    </>
   );
 }

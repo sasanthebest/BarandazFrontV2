@@ -4,8 +4,8 @@ import EmptyState from "@/components/EmptyState";
 import Categories from "@/components/Categories";
 import {getAllCategories} from "@/services/getAllCategories";
 import SidebarContainer from "@/components/sidebar/SidebarContainer";
-import { SidebarContent } from "./../components/sidebar/SideBarContent";
-import { SidebarBodyContainer } from "@/components/sidebar/SidebarBodyContainer";
+import  SidebarContent from "./../components/sidebar/SideBarContent";
+import  SidebarBodyContainer  from "@/components/sidebar/SidebarBodyContainer";
 
 export default async function Page() {
   const allAds = await getAllAds([]);

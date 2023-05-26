@@ -17,5 +17,6 @@ export default async function page() {
   }
   return (
     <MyAds ads={myAds} />
+  
   ) 
 }

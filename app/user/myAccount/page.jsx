@@ -1,5 +1,5 @@
 import UserInfo from "@/components/myAccount/UserInfo"
-import { getCurrentUserInfo } from "@/services/getCurrentUserInfo"
+import { getCurrentUserInfo } from "@/services/userServices"
 
 
 export default async function page() {
