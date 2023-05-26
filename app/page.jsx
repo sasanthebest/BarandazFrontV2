@@ -2,7 +2,7 @@ import getAllAds from "@/services/getAllAds";
 import Card from "@/components/body/card/Card";
 import EmptyState from "@/components/EmptyState";
 import Categories from "@/components/Categories";
-import getAllCategories from "@/services/getAllCategories";
+import {getAllCategories} from "@/services/getAllCategories";
 import SidebarContainer from "@/components/sidebar/SidebarContainer";
 import { SidebarContent } from "./../components/sidebar/SideBarContent";
 import { SidebarBodyContainer } from "@/components/sidebar/SidebarBodyContainer";
@@ -23,12 +23,12 @@ export default async function Page() {
   }
   return (
     <>
+      
       <SidebarContent>
         <SidebarContainer title="سایدبار" mobile={false}>
-          saaaaaa
+          {/* <Categories data={allCategories}> </Categories> */}
         </SidebarContainer>
         <SidebarBodyContainer>
-          
           <div className="grid grid-cols-babak gap-4">
             {allAds?.results?.map((ad) => (
               <Card key={ad.id} item={ad} />

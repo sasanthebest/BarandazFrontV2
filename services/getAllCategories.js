@@ -1,9 +1,8 @@
-import getApiclient from "./api-client";
-import { categories } from "./urls";
-const getAllCategories = async () => {
-  const res = await getApiclient(categories);
-  return res
-   
+import { baseURL ,categoriesUrl } from '@/services/urls';
+import axios from 'axios';
+
+export async function getAllCategories() {
+  return await axios.get(`${baseURL + categoriesUrl}`);   
 };
 
-export default getAllCategories;
+

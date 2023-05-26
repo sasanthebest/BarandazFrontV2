@@ -14,7 +14,7 @@ export const filteredAds = (queryParametrs) => {
 export const baseURL= "http://127.0.0.1:8000"
 export const allAds = '/pollads/';
 export const singleAd = (id) => `/pollads/${id}`;
-export const categories = '/categories/';
+export const categoriesUrl = '/categories/';
 
 // user endpoints:
 export const signUp = '/users/';
@@ -22,13 +22,18 @@ export const userInfo = '/users/me/';
 export const createJwtToken = '/token/';
 
 //phone validations endpoints
-export const sendValidationToken = '/send_validation_token/';
+export const ValidationTokenUrl = '/send_validation_token/';
 export const validateToken ='/validate_token/';
 
 // user's stuff
 
-export const myAds = '/myads/';
-export const myBookmarks = '/bookmarks/';
-export const myChambers = '/mychambers/';
+export const myAdsUrl = '/myads/';
+export const myBookmarksUrl = '/bookmarks/';
+export const myChambersUrl = '/mychambers/';
 // export const myNotes=
 // export const myRecentSeen
+export const myAccount = "/user/myAccount"
+export const myAdds = "/user/myAds"
+export const myChambers = "/user/myChambers"
+export const myBookmarks = "/user/mybookmarks"
+export const myLastSeen="/user/myLastSeens"

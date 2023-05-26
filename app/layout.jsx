@@ -1,13 +1,9 @@
 import Footer from "@/components/layouts/Footer";
-import Header from "@/components/layouts/Header";
 import "./globals.css";
 import LoginModal from "@/components/modals/LoginModal";
-import { getCurrentUser } from "@/services/getCurrentUser";
+import { getCurrentUser,getCurrentUserInfo } from "@/services/userServices";
 import NavBar from "@/components/Navbar";
-import Heading from "@/components/Heading";
-import ClientOnly from "@/components/ClientOnly";
 import Provider from "@/components/Provider";
-import { getCurrentUserInfo } from "@/services/getCurrentUserInfo";
 
 
 export const metadata = {

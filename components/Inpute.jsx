@@ -40,9 +40,7 @@ const Inpute = ({
         placeholder=" "
         type={type}
         className={`
-            peer
-            
-            w-full
+            peer w-full
             p-4   
             pt-3
             mt-4
