@@ -21,6 +21,7 @@ export const authOptions = {
             if (res.status === 200) {
               const user = res.data
               if (res.status == 200 && user) {
+                // console.log("usssser:",user)
                 return user
               }
             } 
@@ -47,7 +48,8 @@ export const authOptions = {
       // console.log("user:", user);
       // console.log("token:", token);
 
-      session.user = token;
+      session.token = token;
+      // session.user=user
       return session;
     }
   },

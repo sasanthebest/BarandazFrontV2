@@ -4,8 +4,9 @@ const AppContext = createContext();
 
 export function BarandazWrapper({ children }) {
 
-    const [activeSidebar, setActiveSidebar] = useState(true);
-      const [test, setTest] = useState(true);
+  const [activeSidebar, setActiveSidebar] = useState(true);
+  const [auth, setAuth] = useState("");
+  const [username, setUsername] = useState("");
 
 
 
@@ -13,9 +14,12 @@ export function BarandazWrapper({ children }) {
     <AppContext.Provider
       value={{  
         activeSidebar,
-              setActiveSidebar,
-              test,
-        setTest
+        setActiveSidebar,
+        auth,
+        setAuth,
+        username,
+        setUsername
+        
       }}
     >
       {children}

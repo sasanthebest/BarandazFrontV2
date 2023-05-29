@@ -1,57 +1,60 @@
 "use client"
-
 import { VscAccount } from "react-icons/vsc";
 import { useCallback, useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import useLoginModal from "@/hooks/useLoginModal";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { baseURL, userInfo } from "../services/urls";
-import axios  from 'axios';
+import { useBarandazContext } from "@/context/context";
+import { myAccount, myAdds, myBookmarks, myChambers, myLastSeen } from "@/services/urls";
 
-const UserMenu = ({ currentUser, userInfo1 }) => {
-  const [auth, setAuth] = useState("")
-     const [username, setUsername] = useState("");
 
-  const session = useSession();
+const UserMenu = () => {
+  
+const { auth, setAuth, username, setUsername } = useBarandazContext();
+const [isOpen, setIsOpen] = useState(false);
+const loginModal = useLoginModal()
+const router=useRouter()
+const session = useSession();
 
   useEffect(() => {
-    async function fetchUser() {
-      const jwt=session?.data?.user?.access
-        const data = axios
-          .get(`${baseURL + userInfo}`, {
-            headers: {
-              Authorization: `jwt ${jwt}`,
-            },
-          })
-          .then((res) => {
-            console.log(res.data)
-            setUsername(res.data.username)
-            return res.data;
-            
-
-          })
-          .catch((err) => {
-            return null;
-          });
-        return data;
-    }
-    fetchUser()
-    setAuth(session.status)
+    // async function fetchUser() {
+    //   const jwt=session?.data?.user?.access
+    //     const data = axios
+    //       .get(`${baseURL + userInfo}`, {
+    //         headers: {
+    //           Authorization: `jwt ${jwt}`,
+    //         },
+    //       })
+    //       .then((res) => {
+    //         console.log(res.data)
+    //         setUsername(res.data.username)
+    //         return res.data;
+    //       })
+    //       .catch((err) => {
+    //         return null;
+    //       });
+    //     return data;
+    // }
+    // fetchUser()
+    setAuth(session?.status)
+    setUsername(session?.data?.token?.user?.username)
     console.log("session:", session);
     // console.log("session:",fetchData);
 
-},[session])
-  const loginModal = useLoginModal()
-  const router=useRouter()
-  const [isOpen, setIsOpen] = useState(false);
+},[session.status])
+
 
   const onRent=useCallback(()=>{
-    if (!currentUser){
+    if (auth=="unauthenticated"){
       return loginModal.onOpen()
     }
     rentModal.onOpen()
-  },[currentUser,loginModal])
+  }, [auth, loginModal])
+  const handleMenu = (url) => {
+   setIsOpen(false)
+    router.push(url);
+}
 
   return (
     <div className="relative ">
@@ -80,27 +83,27 @@ const UserMenu = ({ currentUser, userInfo1 }) => {
                 <>
                   <MenuItem
                     label={username}
-                    onClick={() => router.push("/user/myAccount")}
+                    onClick={() => handleMenu(myAccount)}
                   />
                   <hr />
                   <MenuItem
                     label="آگهی های من"
-                    onClick={() => router.push("/user/myAds")}
+                    onClick={() => handleMenu(myAdds)}
                   />
                   <hr />
                   <MenuItem
                     label="حجره های من"
-                    onClick={() => router.push("/user/myChambers")}
+                    onClick={() => handleMenu(myChambers)}
                   />
                   <hr />
                   <MenuItem
                     label="نشان شده ها"
-                    onClick={() => router.push("/user/myBookmarks")}
+                    onClick={() => handleMenu(myBookmarks)}
                   />
                   <hr />
                   <MenuItem
                     label="بازدیدهای اخیر"
-                    onClick={() => router.push("/user/myLastSeens")}
+                    onClick={() => handleMenu(myLastSeen)}
                   />
                   <hr />
                   <MenuItem label="خروج" onClick={() => signOut()} />

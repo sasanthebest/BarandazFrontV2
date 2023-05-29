@@ -4,7 +4,7 @@ import UserMenu from "./UserMenu";
 import Button from "./Button";
 import HeaderSearch from "./layouts/HeaderSearch";
 
-const NavBar =({currentUser,userInfo}) => {
+const NavBar =() => {
   return (
     <div className="w-full bg-white shadow-sm top-0 sticky z-200 xl:h-5v 2xl:h-5v">
       <div className="py4 border-b-[1px] m-5">
@@ -13,7 +13,7 @@ const NavBar =({currentUser,userInfo}) => {
           <Logo />
           <HeaderSearch/>
           <div className="flex flex-row items-center gap-5 mobmax:hidden">
-          <UserMenu currentUser={currentUser} userInfo={userInfo} />
+          <UserMenu />
           <Button small label="ثبت آگهی"/>
           </div>
 

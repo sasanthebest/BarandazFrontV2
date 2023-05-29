@@ -12,15 +12,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const currentUser=await getCurrentUser()
-  const userInfo=await getCurrentUserInfo()
+  // const currentUser=await getCurrentUser()
+  // const userInfo=await getCurrentUserInfo()
  
 
   return (
     <html lang="fa" dir="rtl" charSet="utf-8">
       <body>
         <Provider>
-        <NavBar userInfo={userInfo} currentUser={currentUser}/> 
+        <NavBar/> 
          <LoginModal/>
           {children}
           <Footer/>

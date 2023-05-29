@@ -5,7 +5,7 @@ import axios from "axios";
 
 export async function getApiclient(url) {
     const session = await getServerSession(authOptions)
-    const jwt = session?.user?.access
+    const jwt = session?.token?.access
     const data = axios.get(`${baseURL + url}`, {
         headers: {
             Authorization: `jwt ${jwt}`

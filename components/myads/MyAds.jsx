@@ -6,7 +6,7 @@ const MyAds = ({ads}) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 m-5">
-      {ads.map((ad,index)=>(
+      {ads?.map((ad,index)=>(
         // card 
         <div key={index } className="flex flex-col items-center md:grid md:grid-cols-2 border rounded border-neutral-300 cursor-pointer">
             {/* card image */}
