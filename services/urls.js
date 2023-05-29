@@ -1,7 +1,7 @@
 
 export const filteredAds = (queryParametrs) => {
   if (queryParametrs === []) {
-    return '/pollads';
+    return '/pollads/';
   } else {
     const queryString = [];
     queryParametrs.forEach((el) => {
@@ -15,6 +15,7 @@ export const baseURL= "http://127.0.0.1:8000"
 export const allAds = '/pollads/';
 export const singleAd = (id) => `/pollads/${id}`;
 export const categoriesUrl = '/categories/';
+export const singleCategory=(id)=>`/categories/${id}/`
 
 // user endpoints:
 export const signUp = '/users/';

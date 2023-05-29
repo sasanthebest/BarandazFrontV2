@@ -48,8 +48,7 @@ const MyChambers = ({data}) => {
                     <div className='text-sm '>{chamber.city_name}</div>
                 </div>
                 <div className='flex flex-col justify-between items-end'> 
-
-                <ArrowTiltle title="مدیریت حجره"/>
+                <ArrowTiltle left title="مدیریت حجره"/>
                 <Button small label="افزودن آگهی"/>
                 </div>
 

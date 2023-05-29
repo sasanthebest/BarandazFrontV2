@@ -1,15 +1,27 @@
+'use client'
 
-
+import { useRouter } from 'next/navigation'
 import React from 'react'
-import { FaAngleLeft } from 'react-icons/fa'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
-const ArrowTiltle = ({onClick,title}) => {
+const ArrowTiltle = ({url,title,left}) => {
+  const router=useRouter()
+  if (left){
   return (
-    <div className='flex flex-row items-center gap-3 cursor-pointer hover:text-rose-400 text-neutral-500'>
+    <div onClick={()=>router.push(url)} className='flex flex-row items-center gap-1 cursor-pointer hover:text-rose-400 text-neutral-500'>
         <div className='text-sm'>{title}</div>
-        <FaAngleLeft className=''/> 
+        <FaAngleLeft className=''/>
     </div>
+  )}
+  
+  return (
+    <div  onClick={()=>router.push(url)} className='flex flex-row items-center gap-1 cursor-pointer hover:text-rose-400 text-neutral-500'>
+        <FaAngleRight className=''/>
+        <div className='text-sm'>{title}</div>
+    </div>
+
   )
+
 }
 
 export default ArrowTiltle

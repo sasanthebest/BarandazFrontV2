@@ -16,7 +16,7 @@ const SidebarContainer = ({ title, children, mobile }) => {
     <div className={`${mobile ? "" : "mobmax:hidden"} sticky top-0`}>
       <div className="flex justify-between h-5v">
         {activeSidebar && (
-          <div className="flex justify-center w-72 border-2 border-stone-300 rounded-md">
+          <div className="pr-4 w-72 text-neutral-500">
             <h3>{title}</h3>
           </div>
         )}

@@ -1,10 +1,5 @@
 import axios from "axios";
 
-
-
-
-
-
 axios.interceptors.response.use(null, (Error) => {
   const expectedError =
     Error.response &&

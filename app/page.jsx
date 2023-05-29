@@ -1,15 +1,17 @@
 import getAllAds from "@/services/getAllAds";
 import Card from "@/components/body/card/Card";
 import EmptyState from "@/components/EmptyState";
-import Categories from "@/components/Categories";
+import Categories from "@/components/categories/Categories";
 import {getAllCategories} from "@/services/getAllCategories";
 import SidebarContainer from "@/components/sidebar/SidebarContainer";
 import  SidebarContent from "./../components/sidebar/SideBarContent";
 import  SidebarBodyContainer  from "@/components/sidebar/SidebarBodyContainer";
+import { categories } from "@/services/categories";
+import CommonCategoryDetails from "@/components/categories/CommonCategoryDetails";
 
 export default async function Page() {
+
   const allAds = await getAllAds([]);
-  const allCategories = await getAllCategories();
 
   if (allAds?.results.length === 0) {
     return (
@@ -23,10 +25,11 @@ export default async function Page() {
   }
   return (
     <>
-      
       <SidebarContent>
-        <SidebarContainer title="سایدبار" mobile={false}>
-          {/* <Categories data={allCategories}> </Categories> */}
+        <SidebarContainer title="دسته بندی" mobile={false}>
+          <Categories/>
+          
+
         </SidebarContainer>
         <SidebarBodyContainer>
           <div className="grid grid-cols-babak gap-4">
