@@ -1,10 +1,20 @@
 
+@font-face {
+  font-family: "font";
+  src: url("/fonts/IRANSans(Fanum).ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
 :root {
   --scroll-bar-color: rgb(0, 174, 218, 0.3);
   --scroll-bar-bg-color: #f6f6f6;
   --bodyHight: 82vh;
   --headerHight: 10vh;
   --footerHight: 8vh;
+  font-family: font;
 }
 
 
@@ -44,13 +54,7 @@
   font-weight: 400;
   font-display: swap;
 } */
-@font-face {
-  font-family: "font";
-  src: url("/fonts/IRANSans(Fanum).ttf") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+
 
 /* @font-face {
   font-family: "font";

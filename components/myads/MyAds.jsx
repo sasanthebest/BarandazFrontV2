@@ -24,10 +24,7 @@ const MyAds = ({ads}) => {
           <Button small label='ویرایش آگهی'/>
         </div>
         </div>
-      
-   
         </div>
-  
         </div>
       ))}
     </div>

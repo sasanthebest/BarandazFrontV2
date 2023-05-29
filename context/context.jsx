@@ -5,7 +5,10 @@ const AppContext = createContext();
 export function BarandazWrapper({ children }) {
 
     const [activeSidebar, setActiveSidebar] = useState(true);
-      const [test, setTest] = useState(true);
+    const [test, setTest] = useState(true);
+    // const [categoryId, setcategoryId] = useState(params.id)
+    const [isClickedIndex,setClickedIndex]=useState(-1)
+
 
 
 
@@ -13,9 +16,13 @@ export function BarandazWrapper({ children }) {
     <AppContext.Provider
       value={{  
         activeSidebar,
-              setActiveSidebar,
-              test,
-        setTest
+        setActiveSidebar,
+        test,
+        setTest,
+        isClickedIndex,
+        setClickedIndex
+        // categoryId, 
+        // setcategoryId
       }}
     >
       {children}
