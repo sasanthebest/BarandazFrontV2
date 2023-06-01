@@ -25,6 +25,7 @@ export default async function Page() {
   }
   return (
     <>
+    <div className="text-center  text-stone-500 mt-5 mb-5">بارانداز،تجارت خانه ای به وسعت ایران</div>
       <SidebarContent>
         <SidebarContainer title="دسته بندی" mobile={false}>
           <Categories/>

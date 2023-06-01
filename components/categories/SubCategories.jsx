@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import ArrowTiltle from "../ArrowTiltle"
+import ArrowTiltle from "../util/ArrowTiltle"
 import { useRouter } from "next/navigation"
 import { useBarandazContext } from "@/context/context"
 

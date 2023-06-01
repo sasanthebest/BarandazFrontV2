@@ -1,4 +1,4 @@
-import ArrowTiltle from "@/components/ArrowTiltle";
+import ArrowTiltle from "@/components/util/ArrowTiltle";
 import EmptyState from "@/components/EmptyState";
 import Card from "@/components/body/card/Card";
 import CategoryInfo from "@/components/categories/CategoryInfo";

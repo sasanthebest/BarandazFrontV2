@@ -10,9 +10,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modals from "./Modal";
 import useLoginModal from "@/hooks/useLoginModal";
-import Inpute from "../Inpute";
+import Inpute from "../util/Inpute";
 import Heading from "../Heading";
-import Button from "../Button";
+import Button from "../util/Button";
 import getValidationToken from "@/services/getValidationToken";
 
 const Phoneschema = y.object({

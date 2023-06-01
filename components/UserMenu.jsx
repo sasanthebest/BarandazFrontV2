@@ -25,7 +25,7 @@ const UserMenu = ({ currentUser, userInfo1 }) => {
             },
           })
           .then((res) => {
-            console.log(res.data)
+ 
             setUsername(res.data.username)
             return res.data;
             
@@ -38,7 +38,7 @@ const UserMenu = ({ currentUser, userInfo1 }) => {
     }
     fetchUser()
     setAuth(session.status)
-    console.log("session:", session);
+
     // console.log("session:",fetchData);
 
 },[session])

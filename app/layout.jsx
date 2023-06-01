@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
       <body>
         <Provider>
         <NavBar userInfo={userInfo} currentUser={currentUser}/> 
-        <div className="text-center  text-stone-500 mt-5 mb-5">بارانداز،تجارت خانه ای به وسعت ایران</div>
+        
          <LoginModal/>
           {children}
           <Footer/>

@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/util/Button";
 import EmptyState from "@/components/EmptyState";
 import MyAds from "@/components/myads/MyAds";
 import {getMyAds} from "@/services/userServices";

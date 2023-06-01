@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-import Button from '../Button'
+import Button from '../util/Button'
 import {ImLocation2} from 'react-icons/im'
-import ArrowTiltle from '../ArrowTiltle'
+import ArrowTiltle from '../util/ArrowTiltle'
 import { MdProductionQuantityLimits } from 'react-icons/md'
 import {RiShieldStarLine} from 'react-icons/ri'
 

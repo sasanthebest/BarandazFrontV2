@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Button from "../Button";
+import Button from "../util/Button";
 import TimeWraper from "../body/card/TimeWraper";
 const MyAds = ({ads}) => {
 

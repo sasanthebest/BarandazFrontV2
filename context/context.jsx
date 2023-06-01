@@ -8,6 +8,8 @@ export function BarandazWrapper({ children }) {
     const [test, setTest] = useState(true);
     // const [categoryId, setcategoryId] = useState(params.id)
     const [isClickedIndex,setClickedIndex]=useState(-1)
+    const [allCategories,setAllCategories]=useState([])
+    const [allCities,setAllCities]=useState([])
 
 
 
@@ -20,9 +22,11 @@ export function BarandazWrapper({ children }) {
         test,
         setTest,
         isClickedIndex,
-        setClickedIndex
-        // categoryId, 
-        // setcategoryId
+        setClickedIndex,
+        allCategories,
+        setAllCategories,
+        allCities,setAllCities
+       
       }}
     >
       {children}

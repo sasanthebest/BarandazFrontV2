@@ -40,15 +40,16 @@ const Inpute = ({
         placeholder=" "
         type={type}
         className={`
-            peer w-full
-            p-4   
+            peer 
+            w-full
+            
             pt-3
             mt-4
             font-light
             bg-white
-            border-2
-            rounded-md
-            outline-none
+            border
+            rounded
+            outline-rose-500
             transition
             disabled:opacity-70
             disabled:cursor-not-allowed
@@ -60,7 +61,7 @@ const Inpute = ({
       <label
         className={`
             absolute
-            text-md
+            text-sm
             duration-150
             transform
             -translate-y-3
