@@ -28,8 +28,6 @@ export default async function Page() {
       <SidebarContent>
         <SidebarContainer title="دسته بندی" mobile={false}>
           <Categories/>
-          
-
         </SidebarContainer>
         <SidebarBodyContainer>
           <div className="grid grid-cols-babak gap-4">

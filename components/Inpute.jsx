@@ -33,6 +33,7 @@ const Inpute = ({
       )}
 
       <input
+        autoFocus
         id={id}
         disabled={disabled}
         onChange={onChange} 

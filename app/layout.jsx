@@ -20,12 +20,8 @@ export default async function RootLayout({ children }) {
     <html lang="fa" dir="rtl" charSet="utf-8">
       <body>
         <Provider>
-<<<<<<< HEAD
-        <NavBar/> 
-=======
-        <NavBar userInfo={userInfo} currentUser={currentUser}/> 
+        <NavBar /> 
         <div className="text-center  text-stone-500 mt-5 mb-5">بارانداز،تجارت خانه ای به وسعت ایران</div>
->>>>>>> f6abf3ad9c26b1d37bb1e43ac03b01c8b9ea514d
          <LoginModal/>
           {children}
           <Footer/>

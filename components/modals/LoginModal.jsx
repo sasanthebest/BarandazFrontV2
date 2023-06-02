@@ -114,6 +114,7 @@ const LoginModal = () => {
         errors={phoneError}
         required
         type="number"
+        
       />
 
       <div className="pt-5 flex justify-center items-center w-full">

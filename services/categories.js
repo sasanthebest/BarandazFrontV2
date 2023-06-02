@@ -3,12 +3,12 @@ import { GiFarmTractor, GiTeePipe } from "react-icons/gi";
 
 export const categories=[
     {
-        id:1,
+        id:9,
         title:"ادوات کشاورزی",
         icon:GiFarmTractor
     },
     {
-        id:3,
+        id:24,
         title:"لوله و اتصالات",
         icon:GiTeePipe
     }
