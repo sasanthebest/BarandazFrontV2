@@ -15,30 +15,33 @@ const { auth, setAuth, username, setUsername } = useBarandazContext();
 const [isOpen, setIsOpen] = useState(false);
 const loginModal = useLoginModal()
 const router=useRouter()
-const session = useSession();
+  const session = useSession();
+  console.log(session)
+  
 
   useEffect(() => {
-    async function fetchUser() {
-      const jwt=session?.data?.user?.access
-        const data = axios
-          .get(`${baseURL + userInfo}`, {
-            headers: {
-              Authorization: `jwt ${jwt}`,
-            },
-          })
-          .then((res) => {
+    // async function fetchUser() {
+    //   const jwt=session?.data?.user?.access
+    //     const data = axios
+    //       .get(`${baseURL + userInfo}`, {
+    //         headers: {
+    //           Authorization: `jwt ${jwt}`,
+    //         },
+    //       })
+    //       .then((res) => {
  
-            setUsername(res.data.username)
-            return res.data;
+    //         setUsername(res.data.username)
+    //         return res.data;
             
 
-          })
-          .catch((err) => {
-            return null;
-          });
-        return data;
-    }
-    fetchUser()
+    //       })
+    //       .catch((err) => {
+    //         return null;
+    //       });
+    //     return data;
+    // }
+    // fetchUser()
+    setUsername(session?.data?.token?.user?.username)
     setAuth(session.status)
 
     // console.log("session:",fetchData);
@@ -52,6 +55,8 @@ const session = useSession();
     }
     rentModal.onOpen()
   }, [auth, loginModal])
+
+
   const handleMenu = (url) => {
    setIsOpen(false)
     router.push(url);

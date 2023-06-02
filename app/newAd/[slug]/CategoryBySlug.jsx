@@ -12,13 +12,13 @@ const CategoryBySlug = ({slug}) => {
     const router=useRouter()
     const currentCategory=allCategories.filter(ca=>ca.slug==slug)[0]
     const currentSubCategory=allCategories.filter(ca=>ca.parent==currentCategory.id)
-    
+    console.log(allCategories)
     if (!currentCategory){
         router.push('/newAd')
 
     }
 
-    if (currentCategory?.parent==null || currentSubCategory.length!=0){
+if (currentCategory?.parent==null || currentSubCategory.length!=0){
         return (
             <SelectCategory currentCategory={currentCategory} />
         )

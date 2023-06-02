@@ -9,6 +9,8 @@ export function BarandazWrapper({ children }) {
     const [isClickedIndex,setClickedIndex]=useState(-1)
     const [allCategories,setAllCategories]=useState([])
     const [allCities,setAllCities]=useState([])
+    const [auth,setAuth]= useState("")
+    const [username, setUsername] = useState("");
 
 
 
