@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiImageAdd } from 'react-icons/bi'
 import { CiTrash } from 'react-icons/ci'
 
@@ -10,7 +10,13 @@ const ImageUploader = ({register,set}) => {
 
   const onRemoveImage=(path)=>{
     setImages(images.filter(item=>item.path!=path))
+    
   }
+
+  useEffect(() => {
+    set('imgs',images)
+  }, [images])
+  
 
   const onUploadImage=(e)=>{
     const files=e.target.files
@@ -52,12 +58,9 @@ const ImageUploader = ({register,set}) => {
            }
            className='cursor-pointer text-stone-400 hover:text-slate-700'/>
           </div>
-          
           ))}
         </div>
-    
-
-          </>
+        </>
   )
 }
 

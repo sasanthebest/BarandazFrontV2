@@ -1,11 +1,10 @@
-import axios from "axios";
 import { baseURL, cities } from "./urls";
 
 
 export default async function getAllCities() {
-    const data=await axios.get(`${baseURL + cities}`)
+    const data=await fetch(`${baseURL + cities}`)
     .then(res=>{
-        return res.data
+        return res.json()
     })
     
     return data

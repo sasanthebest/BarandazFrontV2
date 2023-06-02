@@ -10,18 +10,19 @@ import ImageUploader from './ImageUploader'
 import { useBarandazContext } from '@/context/context'
 
 
-const SubmitAd = ({helpText,slug}) => {
+const SubmitAd = ({helpText,categoryId}) => {
   const {allCities}=useBarandazContext()
   const {register,handleSubmit,formState:{errors},setValue,getValues}=useForm()
     
     const onSubmit=(data)=>{
-      console.log(getValues('city'))
-      data.category=slug
+      data.category=categoryId
+      console.log(data)
+
       
     }
   return (
     <div className='flex flex-col gap-5 items-start justify-center w-96 mb-4'>
-        <DropDown id='city' register={register} cities={allCities} />
+        <DropDown id='city' set={setValue} cities={allCities} />
         <ImageUploader set={setValue} register={register} />
         <CheckBox id="show_phone_number" register={register} label="نمایش  شماره تلفن در آگهی"/>
         <Fields label="قیمت" inputId="price"  helpText="توضیحات" inputeLabel="قیمت" register={register} errors={errors} type="number" inputRequired={true}/>

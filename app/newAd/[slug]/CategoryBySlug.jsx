@@ -12,14 +12,12 @@ const CategoryBySlug = ({slug}) => {
     const router=useRouter()
     const currentCategory=allCategories.filter(ca=>ca.slug==slug)[0]
     const currentSubCategory=allCategories.filter(ca=>ca.parent==currentCategory.id)
-
-
+    
     if (!currentCategory){
         router.push('/newAd')
 
     }
 
-    
     if (currentCategory?.parent==null || currentSubCategory.length!=0){
         return (
             <SelectCategory currentCategory={currentCategory} />
@@ -31,7 +29,7 @@ const CategoryBySlug = ({slug}) => {
             <div className="w-96">
                 <Header title={currentCategory.title}/>                
                 <hr className="mb-2" />
-                <SubmitAd category={slug} />
+                <SubmitAd categoryId={currentCategory.id} />
             </div>
         </div>
     )

@@ -16,17 +16,17 @@ const SubCategories = ({category,parent,kids}) => {
       <div className="mb-4">
         <ArrowTiltle url={'/'}  title="صفحه ی اصلی" />
       </div>
-      <div onClick={()=>router.push(`category/${parent.id}`)} className="flex flex-row gap-1 items-center cursor-pointer">
+      <div onClick={()=>router.push(`/category/${parent.slug}`)} className="flex flex-row gap-1 items-center cursor-pointer">
         {parent.title}
 
         </div>
-      <div onClick={()=>router.push(`category/${category.id}`)} className="pr-6 mt-4 cursor-pointer">{category.title}</div>
+      <div onClick={()=>router.push(`/category/${category.slug}`)} className="pr-6 mt-4 cursor-pointer">{category.title}</div>
       <div  className={`flex flex-col mr-16 mt-4`}>
         {   
           kids.map((kid,index)=>(
             
             <p onClick={()=>{
-              router.push(`category/${kid.id}`)
+              router.push(`/category/${kid.slug}`)
               setClickedIndex(index)}} key={index} className={`text-sm ${isClickedIndex==index?'text-rose-500':"text-neutral-500"} cursor-pointer pr-1 pt-2 pb-2 border-r-2 ${isClickedIndex==index?'border-rose-500':"border-neutral-300"} `}>{kid.title}</p>
             ))
           }
@@ -36,8 +36,8 @@ const SubCategories = ({category,parent,kids}) => {
 
   return (
         <div className="pr-10 mt-3"> 
-        <div className="mb-4">
-          <ArrowTiltle onClick={()=>router.push('/')} title="صفحه ی اصلی" />
+        <div onClick={()=>router.push('/')} className="mb-4">
+          <ArrowTiltle  title="صفحه ی اصلی" />
         </div>
         <div className="flex flex-row gap-1 items-center">
           {category.title}
@@ -48,7 +48,7 @@ const SubCategories = ({category,parent,kids}) => {
             kids.map((kid,index)=>(
               
               <p onClick={()=>{
-                router.push(`category/${kid.id}`)
+                router.push(`category/${kid.slug}`)
                 setClickedIndex(index)}} key={index} className={`text-sm ${isClickedIndex==index?'text-rose-500':"text-neutral-500"} cursor-pointer pr-1 pt-2 pb-2 border-r-2 ${isClickedIndex==index?'border-rose-500':"border-neutral-300"} `}>{kid.title}</p>
               ))
             }

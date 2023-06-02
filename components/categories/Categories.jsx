@@ -11,7 +11,7 @@ const Categories = () => {
         <div className='flex flex-col gap-2 pl-4 pr-2 mt-4'>
             {
               categories.map((ca,index)=>(
-                <CategoryBox key={index} id={ca.id} title={ca.title} icon={ca.icon}/>
+                <CategoryBox key={index} slug={ca.slug} title={ca.title} icon={ca.icon}/>
                 
               ))
             }

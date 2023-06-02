@@ -8,14 +8,14 @@ const ArrowTiltle = ({url,title,left}) => {
   const router=useRouter()
   if (left){
   return (
-    <div onClick={()=>router.push(url)} className='flex flex-row items-center gap-1 cursor-pointer hover:text-rose-400 text-neutral-500'>
+    <div onClick={()=>url && router.push(url)} className='flex flex-row items-center gap-1 cursor-pointer hover:text-rose-400 text-neutral-500'>
         <div className='text-sm'>{title}</div>
         <FaAngleLeft className=''/>
     </div>
   )}
   
   return (
-    <div  onClick={()=>router.push(url)} className='flex flex-row items-center gap-1 cursor-pointer hover:text-rose-400 text-neutral-500'>
+    <div  onClick={()=>url && router.push(url)} className='flex flex-row items-center gap-1 cursor-pointer hover:text-rose-400 text-neutral-500'>
         <FaAngleRight className=''/>
         <div className='text-sm'>{title}</div>
     </div>
