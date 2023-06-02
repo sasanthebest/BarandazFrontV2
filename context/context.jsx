@@ -6,9 +6,9 @@ export function BarandazWrapper({ children }) {
 
     const [activeSidebar, setActiveSidebar] = useState(true);
     // const [categoryId, setcategoryId] = useState(params.id)
-  const [isClickedIndex, setClickedIndex] = useState(-1)
-  const [auth, setAuth] = useState("");
-  const [username, setUsername] = useState("");
+    const [isClickedIndex,setClickedIndex]=useState(-1)
+    const [allCategories,setAllCategories]=useState([])
+    const [allCities,setAllCities]=useState([])
 
 
 
@@ -26,6 +26,10 @@ export function BarandazWrapper({ children }) {
         setUsername,
         // categoryId,
         // setcategoryId
+        allCategories,
+        setAllCategories,
+        allCities,setAllCities
+       
       }}
     >
       {children}

@@ -1,13 +1,13 @@
 
 
 import React from 'react'
-import Toggle from '../Toggle'
+import Toggle from '../util/Toggle'
 import PriceSelection from '../PriceSelection'
 import {RxDrawingPinFilled} from 'react-icons/rx'
 
 const CommonCategoryDetails = () => {
   return (
-    <div className='mt-5 flex flex-col gap-5'>
+    <div className='mt-5 flex flex-col gap-x-0.5'>
         <PriceSelection/>
         <hr />
         <div>

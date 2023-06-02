@@ -1,6 +1,6 @@
 import {getMyChambers} from "@/services/userServices"
 import EmptyState from "@/components/EmptyState"
-import Button from "@/components/Button"
+import Button from "@/components/util/Button"
 import MyChambers from "@/components/myChambers/MyChambers"
 
 

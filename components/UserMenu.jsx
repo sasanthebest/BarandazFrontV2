@@ -18,28 +18,29 @@ const router=useRouter()
 const session = useSession();
 
   useEffect(() => {
-    // async function fetchUser() {
-    //   const jwt=session?.data?.user?.access
-    //     const data = axios
-    //       .get(`${baseURL + userInfo}`, {
-    //         headers: {
-    //           Authorization: `jwt ${jwt}`,
-    //         },
-    //       })
-    //       .then((res) => {
-    //         console.log(res.data)
-    //         setUsername(res.data.username)
-    //         return res.data;
-    //       })
-    //       .catch((err) => {
-    //         return null;
-    //       });
-    //     return data;
-    // }
-    // fetchUser()
-    setAuth(session?.status)
-    setUsername(session?.data?.token?.user?.username)
-    console.log("session:", session);
+    async function fetchUser() {
+      const jwt=session?.data?.user?.access
+        const data = axios
+          .get(`${baseURL + userInfo}`, {
+            headers: {
+              Authorization: `jwt ${jwt}`,
+            },
+          })
+          .then((res) => {
+ 
+            setUsername(res.data.username)
+            return res.data;
+            
+
+          })
+          .catch((err) => {
+            return null;
+          });
+        return data;
+    }
+    fetchUser()
+    setAuth(session.status)
+
     // console.log("session:",fetchData);
 
 },[session.status])

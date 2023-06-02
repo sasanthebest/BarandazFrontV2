@@ -15,7 +15,8 @@ export const baseURL= "http://127.0.0.1:8000"
 export const allAds = '/pollads/';
 export const singleAd = (id) => `/pollads/${id}`;
 export const categoriesUrl = '/categories/';
-export const singleCategory=(id)=>`/categories/${id}/`
+export const singleCategory=(slug)=>`/categories/${slug}/`
+export const cities='/cities/'
 
 // user endpoints:
 export const signUp = '/users/';
