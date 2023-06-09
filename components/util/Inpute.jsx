@@ -43,7 +43,6 @@ const Inpute = ({
         className={`
             peer 
             w-full
-            
             pt-3
             mt-4
             font-light
@@ -79,7 +78,7 @@ const Inpute = ({
       >
         {label}
       </label>
-      <p className="text-rose-500">{errors[id]?.message}</p>
+      <p className="text-rose-500 text-xs mt-2 pr-2">{errors[id]?.message}</p>
       {type==='number'&&(
 
         <div className="left-4">{price}</div>

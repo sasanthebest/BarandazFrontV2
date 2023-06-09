@@ -16,7 +16,7 @@ const [isOpen, setIsOpen] = useState(false);
 const loginModal = useLoginModal()
 const router=useRouter()
   const session = useSession();
-  console.log(session)
+  // console.log(session)
   
 
   useEffect(() => {

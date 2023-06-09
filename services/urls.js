@@ -17,6 +17,7 @@ export const singleAd = (id) => `/pollads/${id}`;
 export const categoriesUrl = '/categories/';
 export const singleCategory=(slug)=>`/categories/${slug}/`
 export const cities='/cities/'
+export const newBookmark='/bookmarks/'
 
 // user endpoints:
 export const signUp = '/users/';
@@ -39,3 +40,8 @@ export const myAdds = "/user/myAds"
 export const myChambers = "/user/myChambers"
 export const myBookmarks = "/user/mybookmarks"
 export const myLastSeen="/user/myLastSeens"
+
+
+
+// create advertisment
+export const submitAd="/submit_ad/"
