@@ -1,5 +1,5 @@
-import styles from "./Card.module.css";
-
+import Image from "next/image";
+import calender from './svg/calender.svg'
 const TimeWraper = ({ time }) => {
   const date = new Date();
 
@@ -16,7 +16,14 @@ const TimeWraper = ({ time }) => {
     }
     return mytime;
   };
-  return <div className={styles.time}>{timeCreator()}</div>;
+  return (
+    <div
+      className="flex place-items-end gap-1 font-thin text-xs"
+    >
+      <Image src={calender} alt="" height={16} width={16} />
+      {timeCreator()}
+    </div>
+  );
 };
 
 export default TimeWraper;

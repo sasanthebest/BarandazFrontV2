@@ -14,10 +14,10 @@ const SaveIcon = ({ item }) => {
   // console.log(id);
 
   return (
-    <div className="cursor-pointer" onClick={()=>setSave(!save)}>
+    <div className="cursor-pointer z-200 absolute top-0" onClick={()=>setSave(!save)}>
       {
         <FaSkyatlas
-          className={save && "text-rose-600"}
+          className={save && "bg-white rounded bg-opacity-75"}
           size={24}
         ></FaSkyatlas>
       }

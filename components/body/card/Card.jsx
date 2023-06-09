@@ -1,56 +1,51 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 //Componenets
 import SaveIcon from "./SaveIcon";
-import CityBadge from "./CityBadge";
 import DesciptionWrapper from "./DesciptionWrapper";
 import TimeWraper from "./TimeWraper";
 //styles
 import styles from "./Card.module.css";
 import CategoryBadge from "./CategoryBadge";
 import ExpandableText from "@/components/ExpandeableText";
+import { useRouter } from "next/navigation";
+import {MdLocationPin,MdCategory,MdOutlineCategory} from "react-icons/md";
+import Location from "./Location";
+
+
 
 const Card = ({ item }) => {
+  console.log("item", item);
+  const router = useRouter();
+  const handleNavigationToCardDetails = (id) => {
+    router.push(`/ads/${id}/`);
+  };
   return (
     <>
-      <div className={`${styles.card} cursor-pointer absolute border rounded`}>
-        <div className={styles.Image}>
-          <Link href={`/ads/${item.id}/`}>
+      <div className={`${styles.card}  rounded`}>
+        <div className="block relative z-20 h-30v">     
             <Image
-              className={`${styles.img} rounded`}
+              className="rounded"
               src="/i.jpg"
               alt={item.title}
-              height={218}
-              width={327}
-              style={{ objectFit: "contain" }}
+              fill={true}
             ></Image>
-          </Link>
           <SaveIcon item={item}></SaveIcon>
-          <div className="bottom-20 flex flex-col">
-            <CityBadge item={item}></CityBadge>
-            <CategoryBadge item={item}></CategoryBadge>
+        </div>
+        <div className="flex items-start pt-2 h-15v gap-2">
+          <div className=" h-full w-full pr-1 ">
+              <h2 className="p-0 cursor-pointer">{item.title}</h2>
+              <div className="flex place-items-end absolute bottom-0 ">
+                <Location item={item}/>
+                <TimeWraper time={item.created_at}></TimeWraper>
+                <span className="text-xs text-neutral-400">
+                  {item.price ? `${item.price} تومان` : "توافقی"}
+                </span>
+              </div>
           </div>
         </div>
-
-        <div className="flex flex-col items-start pr-2 ga-3">
-          <div className={styles.title_container}>
-            <h5 className={styles.title}>
-              <Link href={`/ads/${item.id}/`}>
-                <ExpandableText>{item.title}</ExpandableText>
-                </Link>
-            </h5>
-          </div>
-          <ExpandableText>{item.description}</ExpandableText>
-          <div className={styles.time_price_container}>
-            <TimeWraper time={item.created_at}></TimeWraper>
-            <span className={`${styles.price} text-sm text-neutral-400`}>
-              {item.price? `${item.price} تومان`:"توافقی"}
-            </span>
-          </div>
-        </div>
-
       </div>
     </>
   );

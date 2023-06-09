@@ -1,14 +1,7 @@
-'use client'
+"use client";
 import { IconType } from "react-icons";
 
-const Button = ({
-  label,
-  onClick,
-  disabled,
-  outline,
-  small,
-  icon: Icon,
-}) => {
+const Button = ({ label, onClick, disabled, outline, small, icon: Icon  ,bgColor,textColor}) => {
   return (
     <button
       onClick={onClick}
@@ -23,23 +16,16 @@ const Button = ({
         text-sm
         w-36
         h-15
- 
-        ${outline ? "bg-white" : "bg-rose-700"}
-        ${outline ? "border-neutral-400 border" : "border-rose-700"}
-        ${outline && "text-black"}
-        ${outline && "hover:bg-rose-500 hover: text-white"}
-
-        ${outline ? "py-1" : "py-3"}
-        ${outline ? "text-sm" : "text-md"}
-
-        ${small ? "py-1" : "py-3"}
-        ${small ? "text-sm" : "text-md"}
-        ${small ? "border-[1px]" : "border-2"}
-        ${small ? "hover:bg-rose-500 hover: text-white":'text-black'}
+        ${bgColor}
+        ${
+          small
+            ? "py-1 text-sm border-[1px] hover:bg-rose-500 hover: text-white"
+            : "py-3 text-md border-none text-black"
+        }    
     `}
     >
       {Icon && <Icon className="absolute left-4 top-3" size={24} />}
-      <div className="">{label}</div>
+      <div style={{color:textColor}}>{label}</div>
     </button>
   );
 };
