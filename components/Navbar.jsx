@@ -5,9 +5,7 @@ import UserMenu from "./UserMenu";
 import Button from "./util/Button";
 import HeaderSearch from "./layouts/HeaderSearch";
 import { useRouter } from "next/navigation";
-import { MdOutlineSettings } from "react-icons/md";
 import Image from "next/image";
-import SettingSvg from "./theme/svg/settingSvg";
 
 
 const NavBar =() => {
@@ -37,7 +35,6 @@ const NavBar =() => {
                 width={24}
                 alt="alt"
               />
-              <SettingSvg width={24} height={24}></SettingSvg>
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ const TimeWraper = ({ time }) => {
   };
   return (
     <div
-      className="flex place-items-end gap-1 font-thin text-xs"
+      className="flex place-items-end gap-1 font-thin text-xs text-slate-700"
     >
       <Image src={calender} alt="" height={16} width={16} />
       {timeCreator()}
