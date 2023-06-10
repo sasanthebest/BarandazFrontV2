@@ -8,21 +8,16 @@ import { useRouter } from 'next/navigation'
 import ArrowTiltle from '../util/ArrowTiltle'
 import { useBarandazContext } from '@/context/context'
 
-const SelectCategory = ({data,currentCategory}) => {
+const SelectCategory = ({currentParentCategory,currentCategory}) => {
+  // console.log(currentParentCategory.slug)
   const router=useRouter()
   const {allCategories}=useBarandazContext()
 
-  // const currentCategory=allCategories?.filter(ca=>ca.slug==currentCategorySlug)
-
-  // const parentOfCurrentCategory=data.filter(ca=>ca.id===category.parent)[0]
-  // console.log(parentOfCurrentCategory)
-
-  
   return (
       <div className='flex flex-col w-full items-center p-2'>
         <div>
         <Heading title="انتخاب دسته بندی" subtitle="دسته بندی مورد نظر خود را انتخاب کنید." center/>
-        {/* {category && <ArrowTiltle  title={`${parentOfCurrentCategory.title}`}/>} */}
+        {/* {currentCategory?.parent!=null && <ArrowTiltle url={`/newAd/${currentParentCategory.slug}`}  title={`${currentParentCategory?.title}`}/>} */}
         </div>
         {allCategories?.filter(ca=>currentCategory? ca.parent==currentCategory.id:ca.parent==null).map((ca,index)=>(
 

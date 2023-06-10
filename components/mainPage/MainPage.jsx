@@ -5,17 +5,22 @@ import {getAllCategories} from "@/services/getAllCategories";
 import SidebarContainer from "@/components/sidebar/SidebarContainer";
 import  SidebarContent from "@/components/sidebar/SideBarContent";
 import  SidebarBodyContainer  from "@/components/sidebar/SidebarBodyContainer";
+import Button from "../util/Button";
 
 
 export default function MainPage({allAds}) {
   if (allAds?.results.length === 0) {
     return (
-      <>
+      <div className="h-96">
         <div className="text-center text-neutral-500 mt-5">
-          بارانداز، بازاری به وسعت ایران
+          بارانداز، تجارت خانه ای به وسعت ایران
         </div>
-        <EmptyState title="آگهی یافت نشد" />
-      </>
+        <div className="flex flex-col justify-center items-center h-full ">
+          <EmptyState 
+          title="آگهی یافت نشد"
+          subtitle="متاسفانه در سرورهای بارانداز آگهی یافت نشد"/>
+        </div>
+      </div>
     );
   }
   return (

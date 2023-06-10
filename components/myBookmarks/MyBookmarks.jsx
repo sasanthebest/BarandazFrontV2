@@ -25,7 +25,7 @@ const MyBookmarks = ({ data }) => {
                   <p className="text-sm text-neutral-400">{bookmark.content_type.city_name}</p>
               </div>
             </div>
-            <div class="absolute left-4 top-7 bottm-20 invisible group-hover/item:visible cursor-pointer ">
+            <div className="absolute left-4 top-7 bottm-20 invisible group-hover/item:visible cursor-pointer ">
               <div className="text-sm text-neutral-400 relative border rounded bg-white p-3 hover:text-neutral-700"><p>{bookmark.content_type.title}</p></div>
             </div>
   

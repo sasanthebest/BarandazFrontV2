@@ -15,7 +15,11 @@ const { auth, setAuth, username, setUsername } = useBarandazContext();
 const [isOpen, setIsOpen] = useState(false);
 const loginModal = useLoginModal()
 const router=useRouter()
+<<<<<<< HEAD
 const session = useSession();
+=======
+  const session = useSession();
+>>>>>>> 82b36545c0947d6b951f6350655b598f5405a160
   // console.log(session)
   
 

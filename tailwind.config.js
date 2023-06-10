@@ -17,6 +17,9 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
     },
       extend: {
+        strokeWidth: {
+          '2': '20px',
+        },
         zIndex:{
           "200":"200"
         },
