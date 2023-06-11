@@ -1,24 +1,17 @@
-'use client'
-const ExpandableText = ({children}) => {
+const ExpandableText = ({children ,size,cssClass}) => {
   const textSize = children.split("").length;
-  const size=17
-  if (textSize <= size) return <div className="text-sm">{children}</div>;
-//   if (textSize === size)
-//     return (
-//       <div>
-//         <div>
-//           {children}
-//           <Button onClick={() => setSize(maxChars)}>Less</Button>
-//         </div>
-//       </div>
-//     );
-    return (
-      <div>
-        <div className="text-sm">
+  
+  return (
+    <>
+      {textSize <= size ? (
+        <div className="text-sm">{children}</div>
+      ) : (
+        <div className={`text-sm ${cssClass}`}>
           {children.slice(0, size + 1)}...
         </div>
-      </div>
-    );
+      )}
+    </>
+  );
 };
 
 export default ExpandableText;

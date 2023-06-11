@@ -20,8 +20,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
+<<<<<<< HEAD
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
+=======
+    "react-icons": "^4.9.0",
+>>>>>>> 1dacb06ec77dfd25c6b9d506d5dda8c6da514c70
     "react-swipeable": "^7.0.0",
     "yup": "^1.0.2",
     "zustand": "^4.3.8"

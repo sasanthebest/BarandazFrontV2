@@ -26,14 +26,14 @@ const SidebarContainer = ({ title, children, mobile }) => {
               onClick={() => setActiveSidebar(!activeSidebar)}
               className="flex justify-center items-center h-6 w-6 sticky bg-sky-500/75 rounded-r-2xl"
             >
-              <AiOutlineCaretRight size="1.5rem" color="#170080" />
+              <AiOutlineCaretRight size={24} color="#170080" />
             </div>
           ) : (
             <div
               className="flex justify-center items-center h-6 w-6 sticky bg-sky-500/75 rounded-l-2xl"
               onClick={() => setActiveSidebar(!activeSidebar)}
             >
-              <AiOutlineCaretLeft size="1.5rem" color="#170080" />
+              <AiOutlineCaretLeft size={24} color="#170080" />
             </div>
           )}
         </div>

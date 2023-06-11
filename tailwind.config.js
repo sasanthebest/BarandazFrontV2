@@ -37,10 +37,17 @@ module.exports = {
         zIndex:{
           "200":"200"
         },
+        backgroundColor: {
+          "theme1":"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        },
         height: {
           "5v": "5vh",
           "10v": "10vh",
+          "12v": "12vh",
+          "13v": "13vh",
+          "15v": "15vh",
           "20v": "20vh",
+          "25v": "25vh",
           "30v": "30vh",
           "40v": "40vh",
           "50v": "50vh",
