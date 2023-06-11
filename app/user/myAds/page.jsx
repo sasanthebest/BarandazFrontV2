@@ -13,8 +13,7 @@ export default async function page() {
       <EmptyState title="تا کنون آگهی ثبت نکرده اید"/>
       <Button label="ثبت آگهی"/>
       </div>
-    )
-  }
+    )}
   return (
     <MyAds ads={myAds} />
   

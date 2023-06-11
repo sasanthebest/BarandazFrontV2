@@ -13,11 +13,12 @@ export const filteredAds = (queryParametrs) => {
 };
 export const baseURL= "http://127.0.0.1:8000"
 export const allAds = '/pollads/';
-export const singleAd = (id) => `/pollads/${id}`;
+export const singleAd = (code) => `/pollads/${code}/`;
 export const categoriesUrl = '/categories/';
 export const singleCategory=(slug)=>`/categories/${slug}/`
 export const cities='/cities/'
 export const newBookmark='/bookmarks/'
+export const deleteBookmark=(id)=>`/bookmarks/${id}/`
 
 // user endpoints:
 export const signUp = '/users/';
@@ -31,6 +32,7 @@ export const validateToken ='/validate_token/';
 // user's stuff
 
 export const myAdsUrl = '/myads/';
+export const myAdsSingle=code=> `/myads/${code}/`
 export const myBookmarksUrl = '/bookmarks/';
 export const myChambersUrl = '/mychambers/';
 // export const myNotes=

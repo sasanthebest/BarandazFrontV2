@@ -1,6 +1,6 @@
 "use client";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 import TimeWraper from "../card/TimeWraper";
 import CardCarousel from "./CardCarousel";
 import styles from "./CardDetail.module.css";
@@ -8,13 +8,7 @@ import styles from "./CardDetail.module.css";
 const CardDetial = ({ advertisment, error }) => {
   return (
     <div>
-      <ToastContainer
-        position="bottom-right"
-        rtl="true"
-        theme="colored"
-        closeOnClick
-        pauseOnHover
-      ></ToastContainer>
+
       {/* {error && error[0] == 404 && <div> {error[1]}</div>}
       {advertisment && (
         <Head>

@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,13 +12,14 @@ import TimeWraper from "./TimeWraper";
 import styles from "./Card.module.css";
 import CategoryBadge from "./CategoryBadge";
 import ExpandableText from "@/components/ExpandeableText";
+import { useRouter } from "next/navigation";
 
 const Card = ({ item }) => {
+  const router=useRouter()
   return (
     <>
-      <div className={`${styles.card} cursor-pointer absolute border rounded`}>
+      <div onClick={()=>router.push(`/ads/${item.code}`)} className={`${styles.card} cursor-pointer absolute border rounded`}>
         <div className={styles.Image}>
-          <Link href={`/ads/${item.id}/`}>
             <Image
               className={`${styles.img} rounded`}
               src="/i.jpg"
@@ -26,7 +28,6 @@ const Card = ({ item }) => {
               width={327}
               style={{ objectFit: "contain" }}
             ></Image>
-          </Link>
           <SaveIcon item={item}></SaveIcon>
           <div className="bottom-20 flex flex-col">
             <CityBadge item={item}></CityBadge>

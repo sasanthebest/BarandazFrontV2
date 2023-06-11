@@ -50,15 +50,15 @@ const SubmitAd = ({dropDown,input,checkBox,currentCategory}) => {
       
       console.log('data_will_send_to_user:',data)
      
-      // axios.post('http://localhost:8000/submit_ad/',data,{
-      //   headers:{
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'multipart/form-data',
-      //     'Authorization':'jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzMjEyNjMzLCJqdGkiOiI1YzU4ODQ2ZjU0NjU0OWViYTVhNTJiZWQ4YWVmOTZiYyIsInVzZXJfaWQiOjF9.BnJouOMEVZ3RxXLCOgVk0OjwTa3Zil5k-6d7uOX7hkI'
-      // }})
-      // .then((res)=>{
-      //   console.log(res.data)
-      // })
+      axios.post('http://localhost:8000/submit_ad/',data,{
+        headers:{
+          'Accept': 'application/json',
+          'Content-Type': 'multipart/form-data',
+          'Authorization':'jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzMjEyNjMzLCJqdGkiOiI1YzU4ODQ2ZjU0NjU0OWViYTVhNTJiZWQ4YWVmOTZiYyIsInVzZXJfaWQiOjF9.BnJouOMEVZ3RxXLCOgVk0OjwTa3Zil5k-6d7uOX7hkI'
+      }})
+      .then((res)=>{
+        console.log(res.data)
+      })
     }
 
 
@@ -131,7 +131,7 @@ const SubmitAd = ({dropDown,input,checkBox,currentCategory}) => {
         <p>جزییات آگهی</p>
         <p className='text-xs text-stone-400 pt-1'>توضیحات مربوط به توضیحات این دسته بندی</p>
         </div>
-        <TextInput id='descriptions' errors={errors} register={register}/>
+        <TextInput id='descriptions' errors={errors} register={register} placeholder="توضیحات"/>
         <div className='flex flex-row gap-1'>
           <Button onClick={handleSubmit(data=>onSubmit(data))} small label="ثبت"/>
           <Button small label="انصراف"/>
