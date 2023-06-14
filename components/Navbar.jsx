@@ -27,6 +27,7 @@ const NavBar =() => {
       </div>
       {/* <Category/> */}
     </div>
+    </div>
   );
 };
 

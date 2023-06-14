@@ -6,34 +6,19 @@ import SaveIcon from "./SaveIcon";
 import TimeWraper from "./TimeWraper";
 //styles
 import styles from "./Card.module.css";
-<<<<<<< HEAD
 import CategoryBadge from "./CategoryBadge";
 import ExpandableText from "@/components/ExpandeableText";
 import { useRouter } from "next/navigation";
-=======
 import Location from "./Location";
 import Link from "next/link";
 
 
->>>>>>> 1dacb06ec77dfd25c6b9d506d5dda8c6da514c70
 
 const Card = ({ item }) => {
   const router=useRouter()
   return (
     <>
-<<<<<<< HEAD
-      <div onClick={()=>router.push(`/ads/${item.code}`)} className={`${styles.card} cursor-pointer absolute border rounded`}>
-        <div className={styles.Image}>
-            <Image
-              className={`${styles.img} rounded`}
-              src="/i.jpg"
-              alt={item.title}
-              height={218}
-              width={327}
-              style={{ objectFit: "contain" }}
-            ></Image>
-=======
-      <div className={`${styles.card}  rounded`}>
+      <div onClick={()=>router.push(`/ads/${item.code}`)}  className={`${styles.card}  rounded`}>
         <div className="block relative z-20 h-30v">
           <Image
             className="rounded"
@@ -42,7 +27,6 @@ const Card = ({ item }) => {
             fill={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           ></Image>
->>>>>>> 1dacb06ec77dfd25c6b9d506d5dda8c6da514c70
           <SaveIcon item={item}></SaveIcon>
         </div>
         <div className="flex items-start pt-2 h-12v gap-2">

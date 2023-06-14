@@ -10,7 +10,7 @@ const router=useRouter()
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 m-5">
       {ads?.map((ad,index)=>(
         // card 
-        <div key={index } onClick={()=>router.push(`/user/myAds/${ad.code}`)} className="flex flex-col items-center md:grid md:grid-cols-2 border rounded border-neutral-300 cursor-pointer">
+        <div key={index }  className="flex flex-col items-center md:grid md:grid-cols-2 border rounded border-neutral-300">
             {/* card image */}
             <div className="m-3">
               <Image src='/i.jpg' className="rounded" width={200} height={200}  />
@@ -23,7 +23,7 @@ const router=useRouter()
         <div className="mt-2 text-center">
 
         <div>
-          <Button small label='ویرایش آگهی'/>
+          <Button onClick={()=>router.push(`/user/myAds/${ad.code}/review`)} small label='ویرایش آگهی'/>
         </div>
         </div>
         </div>

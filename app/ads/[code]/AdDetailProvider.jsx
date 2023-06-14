@@ -1,6 +1,7 @@
 'use client'
 
-import MyAdsDetail from '@/components/myads/MyAdsDetail'
+import AdsDetail from '@/components/body/AdsDetail'
+
 import { useBarandazContext } from '@/context/context'
 import React, { useEffect } from 'react'
 
@@ -12,11 +13,11 @@ const AdDetailProvider = ({bookmarkId,categories,data}) => {
     useEffect(() => {
       setAllCategories(categories)
     //   setAllCities(cities)
-    }, [])
+    }, [categories,setAllCategories])
     
 
   return (
-    <MyAdsDetail bookmarkId={bookmarkId} singleAd={data}/>
+    <AdsDetail bookmarkId={bookmarkId} singleAd={data}/>
   )
 }
 

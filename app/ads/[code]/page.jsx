@@ -1,5 +1,3 @@
-import CardDetial from "@/components/body/carddetail/CardDetial";
-import MyAdsDetail from "@/components/myads/MyAdsDetail";
 import getSingleAd from "@/services/getSingleAd";
 import AdDetailProvider from "./adDetailProvider";
 import { getAllCategories } from "@/services/getAllCategories";

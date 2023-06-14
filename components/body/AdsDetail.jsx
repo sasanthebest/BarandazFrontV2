@@ -6,9 +6,9 @@ import React, { useState } from 'react'
 import { BsBookmarkStar } from 'react-icons/bs'
 import { FaAngleLeft, FaLocationArrow, FaSkyatlas } from 'react-icons/fa'
 import { HiOutlineShare } from 'react-icons/hi2'
-import ArrowTiltle from '../util/ArrowTiltle'
+import ArrowTiltle from '../../../frontend/components/util/ArrowTiltle'
 import { BiLeftArrow } from 'react-icons/bi'
-import TextInput from '../util/TextInput'
+import TextInput from '../../../frontend/components/util/TextInput'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { baseURL, deleteBookmark, newBookmark } from '@/services/urls'
@@ -20,7 +20,7 @@ import {CiTwitter} from 'react-icons/ci'
 import {FaTelegramPlane} from 'react-icons/fa'
 import {RxInstagramLogo} from 'react-icons/rx'
 // :{adspecification:{title},value}
-const MyAdsDetail = ({singleAd,bookmarkId}) => {
+const AdsDetail = ({singleAd,bookmarkId}) => {
     // console.log('level3',bookmarkId)
     const {register,formState:{errors}}=useForm()
     const router=useRouter()
@@ -184,4 +184,4 @@ const MyAdsDetail = ({singleAd,bookmarkId}) => {
   )
 }
 
-export default MyAdsDetail
+export default AdsDetail
