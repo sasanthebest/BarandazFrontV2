@@ -11,7 +11,7 @@ export default async function DashboardLayout({ children }) {
     <>
       {/* {auth == "authenticated" ? ( */}
         <SidebarContent>
-          <SidebarContainer title="سایدبار" mobile={false}>
+          <SidebarContainer title="سایدبار" mobile={false} littleSideBar>
             <AccountSideBar/>
           </SidebarContainer>
           <SidebarBodyContainer>{children}</SidebarBodyContainer>

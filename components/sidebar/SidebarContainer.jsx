@@ -8,8 +8,8 @@ import Image from "next/image";
 
 
 
-const SidebarContainer = ({ title, children, mobile }) => {
-  const { activeSidebar, setActiveSidebar } = useBarandazContext();
+const SidebarContainer = ({ title, children, mobile,littleSideBar }) => {
+  const { activeSidebar, setActiveSidebar,hasLittleSideBar,sethasLittleSideBar } = useBarandazContext();
   const router = useRouter();
   useEffect(() => {
     setActiveSidebar(activeSidebar);
@@ -22,14 +22,22 @@ const SidebarContainer = ({ title, children, mobile }) => {
       <div className="flex justify-end h-5v">
         <div>
             <div
-              onClick={() => setActiveSidebar(!activeSidebar)}
+              onClick={() => {
+                setActiveSidebar(!activeSidebar)
+                sethasLittleSideBar(!hasLittleSideBar)
+              }}
               className="flex justify-end h-6 w-6  bg-white rounded-r-2xl">
               <AiOutlineCaretRight size={22} className={`bg-white cursor-pointer ${activeSidebar ? 'transform rotate-135 duration-700 ':'transform -rotate-180 duration-700 '}`} />
             </div>
         </div>
       </div>
-      {activeSidebar && (
-        <div className="w-72">
+      {activeSidebar ? (
+        <div className="w-72 ease-out">
+          <div className="pl-3 pr-4">{children}</div>
+        </div>
+      ):
+       littleSideBar && (
+        <div className="w-16">
           <div className="pl-3 pr-4">{children}</div>
         </div>
       )}

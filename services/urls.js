@@ -42,6 +42,7 @@ export const myAdds = "/user/myAds"
 export const myChambers = "/user/myChambers"
 export const myBookmarks = "/user/mybookmarks"
 export const myLastSeen="/user/myLastSeens"
+export const myNotes="/user/myNotes"
 
 
 

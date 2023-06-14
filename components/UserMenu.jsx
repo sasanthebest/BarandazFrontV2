@@ -5,7 +5,7 @@ import useLoginModal from "@/hooks/useLoginModal";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useBarandazContext } from "@/context/context";
-import { myAccount, myAdds, myBookmarks, myChambers, myLastSeen } from "@/services/urls";
+import { myAccount, myAdds, myBookmarks, myChambers, myLastSeen, myNotes } from "@/services/urls";
 import { HiCalendarDays, HiUser } from "react-icons/hi2";
 import { GiBattleship, GiFoldedPaper, GiNotebook } from "react-icons/gi";
 import { FaSkyatlas } from "react-icons/fa";
@@ -45,7 +45,7 @@ const router=useRouter()
     {
       label:'یادداشت های من',
       icon:GiNotebook,
-      href:() => handleMenu(myBookmarks)
+      href:() => handleMenu(myNotes)
     },
     {
       label:'بازدید های اخیر',
