@@ -11,7 +11,6 @@ const MenuItem= ({icon:Icon, onClick, label }) => {
       className="
       w-full
       p-3
-      hover:bg-neutral-100
       transition
       "
       >

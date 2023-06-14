@@ -1,18 +1,23 @@
-import {CiSearch} from 'react-icons/ci'
+import { RiSearch2Line } from 'react-icons/ri';
 const HeaderSearch = () => {
   return (
-    <div className="lg:w-96 md:w-72 mobmax:w-full px-5">
-    <CiSearch className=""/>
-    <input type="text" className="
-    text-xs
-     text-neutral-500 
+    <div className="
     border-none
-    outline-none 
     bg-slate-100 
     rounded 
     h-9 
+    lg:w-96
+    md:w-72 
+    mobmax:w-full 
+    px-5 
     flex 
-    flex-row " placeholder="جستجو"></input>
+    flex-row 
+    gap-3 
+    items-center ">
+    <div className='border-l-2 pl-1 text-center'>
+      <RiSearch2Line className="text-stone-500"/>
+    </div>
+    <input type="text" className="bg-slate-100 outline-none text-sm text-zinc-500 w-full" placeholder="جستجو در بارانداز"></input>
     </div>
 
   );
