@@ -1,9 +1,16 @@
+import EmptyState from "@/components/EmptyState";
 
 
 
 export default async function page() {
-    // const bookmarks = await getMyBookmarks();
   
-    return <div>my last seens</div>
+    return (
+      <div className="flex flex-col items-center gap-3">
+        <EmptyState
+          title="تاکنون از آگهی های بارانداز بازدید نداشته اید."
+
+        />
+      </div>
+    );
   }
   

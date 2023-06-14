@@ -18,7 +18,7 @@ const Btnslider = ({ moveSlide, direction, slideIndex, Image_length }) => {
   };
   useEffect(() => {
     buttonClass();
-  }, [slideIndex]);
+  }, [slideIndex,buttonClass]);
 
   return (
     <button

@@ -9,9 +9,9 @@ const Logo = () => {
       onClick={()=>{router.push('/')}}
       alt="Logo"
       className="hidden md:block cursor-pointer"
-      height={50}
-      width={50}
-      src="/logo.png"
+      height={75}
+      width={75}
+      src="/logo2.jpg"
     />
   );
 };

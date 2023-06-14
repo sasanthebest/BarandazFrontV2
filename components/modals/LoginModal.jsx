@@ -6,8 +6,7 @@ import * as y from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast"
 import Modals from "./Modal";
 import useLoginModal from "@/hooks/useLoginModal";
 import Inpute from "../util/Inpute";
@@ -154,7 +153,7 @@ const LoginModal = () => {
 
   return (
     <>
-      <ToastContainer />
+
       <Modals
         title="ورود به حساب کاربری"
         isOpen={loginModal.isOpen}

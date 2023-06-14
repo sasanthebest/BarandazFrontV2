@@ -4,13 +4,14 @@ const AppContext = createContext();
 
 export function BarandazWrapper({ children }) {
 
-  const [activeSidebar, setActiveSidebar] = useState(true);
+  const [activeSidebar, setActiveSidebar] = useState(false);
   const [theme, setTheme] = useState("theme1");
     // const [categoryId, setcategoryId] = useState(params.id)
     const [isClickedIndex,setClickedIndex]=useState(-1)
     const [allCategories,setAllCategories]=useState([])
     const [allCities,setAllCities]=useState([])
     const [auth,setAuth]= useState("")
+    const [hasLittleSideBar,sethasLittleSideBar]=useState(false)
     const [username, setUsername] = useState("");
 
 
@@ -26,7 +27,8 @@ export function BarandazWrapper({ children }) {
         username,setUsername,
         // categoryId, setcategoryId,
         allCategories,setAllCategories,
-        allCities,setAllCities
+        allCities,setAllCities,
+        hasLittleSideBar,sethasLittleSideBar
        
       }}
     >

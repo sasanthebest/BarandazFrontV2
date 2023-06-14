@@ -1,6 +1,6 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
 import { getServerSession } from "next-auth"
-import { myAdsUrl, myBookmarksUrl, myChambersUrl, userInfo ,baseURL, newBookmark} from "./urls";
+import { myAdsUrl,myAdsSingle, myBookmarksUrl, myChambersUrl, userInfo ,baseURL, newBookmark} from "./urls";
 import axios from "axios";
 
 export async function getApiclient(url) {
@@ -49,6 +49,10 @@ export async function getCurrentUserInfo() {
 }
 export async function getMyAds() {
     const data = await getApiclient(myAdsUrl)
+    return data
+};
+export async function getSingleMyAds(code) {
+    const data = await getApiclient(myAdsSingle(code))
     return data
 };
 export async function getMyBookMarks() {

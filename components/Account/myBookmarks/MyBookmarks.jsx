@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
-import SaveIcon from "../body/card/SaveIcon";
-import ExpandableText from "../ExpandeableText";
+import SaveIcon from "../../body/card/SaveIcon";
+import ExpandableText from "../../ExpandeableText";
 
 const MyBookmarks = ({ data }) => {
 

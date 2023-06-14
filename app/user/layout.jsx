@@ -1,24 +1,24 @@
 import SidebarContent  from "@/components/sidebar/SideBarContent";
 import SidebarContainer  from '@/components/sidebar/SidebarContainer';
 import SidebarBodyContainer  from '@/components/sidebar/SidebarBodyContainer';
-// import { useBarandazContext } from '@/context/context';
 import Login from "@/components/UTILS/Login";
+import AccountSideBar from "@/components/Account/AccountSideBar";
 
 
 export default async function DashboardLayout({ children }) {
-  // const router=useRouter()
-  // const { auth, setAuth } = useBarandazContext();
 
   return (
     <>
-      
+      {/* {auth == "authenticated" ? ( */}
         <SidebarContent>
-          <SidebarContainer title="سایدبار" mobile={false}>
-            {/* <Categories data={allCategories}> </Categories> */}
+          <SidebarContainer title="سایدبار" mobile={false} littleSideBar>
+            <AccountSideBar/>
           </SidebarContainer>
           <SidebarBodyContainer>{children}</SidebarBodyContainer>
         </SidebarContent>
-     
+      {/* ) : (
+        <Login />
+      )} */}
     </>
   );
 }

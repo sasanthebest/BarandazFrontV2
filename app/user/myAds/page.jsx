@@ -1,6 +1,6 @@
 import Button from "@/components/util/Button";
 import EmptyState from "@/components/EmptyState";
-import MyAds from "@/components/myads/MyAds";
+import MyAds from "@/components/Account/myads/MyAds";
 import {getMyAds} from "@/services/userServices";
 
 
@@ -13,8 +13,7 @@ export default async function page() {
       <EmptyState title="تا کنون آگهی ثبت نکرده اید"/>
       <Button label="ثبت آگهی"/>
       </div>
-    )
-  }
+    )}
   return (
     <MyAds ads={myAds} />
   

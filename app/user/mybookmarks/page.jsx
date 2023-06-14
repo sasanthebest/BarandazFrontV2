@@ -1,5 +1,5 @@
 import EmptyState from "@/components/EmptyState"
-import MyBookmarks from "@/components/myBookmarks/MyBookmarks"
+import MyBookmarks from "@/components/Account/myBookmarks/MyBookmarks"
 import {getMyBookMarks} from "@/services/userServices"
 
 export default async function page() {

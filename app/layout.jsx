@@ -4,6 +4,8 @@ import LoginModal from "@/components/modals/LoginModal";
 import { getCurrentUser,getCurrentUserInfo } from "@/services/userServices";
 import NavBar from "@/components/Navbar";
 import Provider from "@/components/Provider";
+import ContactInfoModal from "@/components/modals/ContactInfoModal";
+import ToasterProvider from "./providers/ToastProvider";
 
 
 export const metadata = {
@@ -20,8 +22,10 @@ export default async function RootLayout({ children }) {
     <html lang="fa" dir="rtl" charSet="utf-8">
       <body>
         <Provider>
+        <ToasterProvider/>
         <NavBar /> 
          <LoginModal/>
+         <ContactInfoModal/>
           {children}
           <Footer/>
         </Provider>

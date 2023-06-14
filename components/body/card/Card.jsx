@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Image from "next/image";
 //Componenets
@@ -5,15 +6,19 @@ import SaveIcon from "./SaveIcon";
 import TimeWraper from "./TimeWraper";
 //styles
 import styles from "./Card.module.css";
+import CategoryBadge from "./CategoryBadge";
+import ExpandableText from "@/components/ExpandeableText";
+import { useRouter } from "next/navigation";
 import Location from "./Location";
 import Link from "next/link";
 
 
 
 const Card = ({ item }) => {
+  const router=useRouter()
   return (
     <>
-      <div className={`${styles.card}  rounded`}>
+      <div onClick={()=>router.push(`/ads/${item.code}`)}  className={`${styles.card}  rounded`}>
         <div className="block relative z-20 h-30v">
           <Image
             className="rounded"
