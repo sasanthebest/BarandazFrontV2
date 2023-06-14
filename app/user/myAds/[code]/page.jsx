@@ -1,4 +1,4 @@
-import MyAdsUpdate from "@/components/myads/MyAdsManage"
+import MyAdsUpdate from "@/components/Account/myads/MyAdsManage"
 
 import { getSingleMyAds } from "@/services/userServices"
 

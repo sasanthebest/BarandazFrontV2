@@ -46,7 +46,7 @@ const DropDown = ({data,id,inputeTitle,sId,set,specifc,helpText}) => {
         {helpText && <p className='text-xs text-stone-500 pb-2'>{helpText}</p>}
         <div onClick={()=>setIsOpen(!isOpen)} className='flex flex-row justify-between items-center w-full rounded border p-2 mt-1 cursor-pointer'>
             <p  className='cursor-pointer bg-white w-full outline-none text-xs'>{selected.title}</p>
-            <FaAngleDown className={`text-neutral-500 ${isOpen && 'transform rotate-180 duration-500 origin-center'}`}/>
+            <FaAngleDown className={`text-neutral-500 ${isOpen ? 'transform rotate-135 duration-1000 ':'transform rotate-180 duration-1000 '}`}/>
         </div>
         {
             isOpen && (

@@ -1,8 +1,8 @@
 'use client'
 import Image from "next/image";
 import React from "react";
-import Button from "../util/Button";
-import TimeWraper from "../body/card/TimeWraper";
+import Button from "../../util/Button";
+import TimeWraper from "../../body/card/TimeWraper";
 import { useRouter } from "next/navigation";
 const MyAds = ({ads}) => {
 const router=useRouter()

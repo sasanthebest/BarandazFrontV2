@@ -3,22 +3,18 @@ import { useBarandazContext } from '@/context/context'
 import useContactInfoModal from '@/hooks/useInfoModal'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { BsBookmarkStar } from 'react-icons/bs'
-import { FaAngleLeft, FaLocationArrow, FaSkyatlas } from 'react-icons/fa'
+
+import { FaLocationArrow, FaSkyatlas } from 'react-icons/fa'
 import { HiOutlineShare } from 'react-icons/hi2'
 import ArrowTiltle from '../../../frontend/components/util/ArrowTiltle'
-import { BiLeftArrow } from 'react-icons/bi'
+
 import TextInput from '../../../frontend/components/util/TextInput'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { baseURL, deleteBookmark, newBookmark } from '@/services/urls'
 import { toast } from "react-hot-toast"
 import { useRouter } from 'next/navigation'
-import {CiLinkedin} from 'react-icons/ci'
-import {AiOutlineYoutube} from 'react-icons/ai'
-import {CiTwitter} from 'react-icons/ci'
-import {FaTelegramPlane} from 'react-icons/fa'
-import {RxInstagramLogo} from 'react-icons/rx'
+
 // :{adspecification:{title},value}
 const AdsDetail = ({singleAd,bookmarkId}) => {
     // console.log('level3',bookmarkId)
@@ -155,28 +151,14 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
         {/* footer */}
  
 
-{/* 
+            {/* 
         <div className='fixed bottom-0 bg-white shadow-inner p-2 flex justify-center border w-full'>
         <div onClick={()=>info.onOpen("09184113688")}
-        className='  border rounded bg-slate-200 p-2 hover:bg-slate-300 cursor-pointer'>اطلاعات آگهی دهنده
-        </div>
-    </div>  */}
+            className='  border rounded bg-slate-200 p-2 hover:bg-slate-300 cursor-pointer'>اطلاعات آگهی دهنده
+            </div>
+        </div>  */}
     </div>
-    <div className='flex flex-row justify-evenly pb-5'>
-        <div className='flex flex-row items-center'>
-            <span className='text-xs text-stone-400 border-l p-1 hover:text-stone-600 cursor-pointer'>درباره ی بارانداز</span>
-            <span className='text-xs text-stone-400 border-l p-1 hover:text-stone-600 cursor-pointer'>پشتیبانی</span>
-            <span className='text-xs text-stone-400  p-1 hover:text-stone-600 cursor-pointer'>دنیای محصولات کشاورزی</span>
-        </div>
-        <div className='flex flex-row  items-center gap-3 justify-around '>
-            <CiLinkedin size={19} className='text-neutral-400 cursor-pointer hover:text-neutral-500'/>
-            <FaTelegramPlane  size={19} className='text-neutral-400 cursor-pointer hover:text-neutral-500'/>
-            <CiTwitter  size={19} className='text-neutral-400 cursor-pointer hover:text-neutral-500'/>
-            <AiOutlineYoutube  size={19} className='text-neutral-400 cursor-pointer hover:text-neutral-500'/>
-            <RxInstagramLogo size={19} className='text-neutral-400 cursor-pointer hover:text-neutral-500'/>
-        </div>
-
-    </div>
+   
 
 
 

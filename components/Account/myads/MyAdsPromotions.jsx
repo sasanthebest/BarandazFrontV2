@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react'
 import { BsPinAngle, BsPinAngleFill } from 'react-icons/bs'
-import Button from '../util/Button'
+import Button from '../../util/Button'
 import axios from 'axios'
 import { baseURL,requestToPay } from '@/services/urls'
 import { headers } from 'next/dist/client/components/headers'
 import { toast } from 'react-hot-toast'
-import ButtonB from '../util/ButtonB'
+import ButtonB from '../../util/ButtonB'
 const MyAdsPromotions = () => {
     const [pinnedItem, setPinnedItem] = useState([])
     let [totalPrice, setTotalPrice] = useState(0)

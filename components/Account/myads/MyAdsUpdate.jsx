@@ -2,13 +2,13 @@
 
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import Inpute from '../util/Inpute'
-import CheckBox from '../util/CheckBox'
-import DropDown from '../util/DropDown'
-import ImageUploader from '../submitAd/ImageUploader'
+import Inpute from '../../util/Inpute'
+import CheckBox from '../../util/CheckBox'
+import DropDown from '../../util/DropDown'
+import ImageUploader from '../../submitAd/ImageUploader'
 import { useBarandazContext } from '@/context/context'
-import TextInput from '../util/TextInput'
-import Button from '../util/Button'
+import TextInput from '../../util/TextInput'
+import Button from '../../util/Button'
 
 
 const MyAdsUpdate = (data) => {

@@ -1,4 +1,4 @@
-import MyAdsprovider from "@/components/myads/MyAdsProvider"
+import MyAdsprovider from "@/components/Account/myads/MyAdsProvider"
 import { getAllCategories } from "@/services/getAllCategories"
 import getAllCities from "@/services/getAllCities"
 import { getSingleMyAds } from "@/services/userServices"

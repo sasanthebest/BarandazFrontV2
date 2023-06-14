@@ -1,7 +1,7 @@
 import {getMyChambers} from "@/services/userServices"
 import EmptyState from "@/components/EmptyState"
 import Button from "@/components/util/Button"
-import MyChambers from "@/components/myChambers/MyChambers"
+import MyChambers from "@/components/Account/myChambers/MyChambers"
 
 
 export default async function page() {

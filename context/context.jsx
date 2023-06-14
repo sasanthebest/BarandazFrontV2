@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 export function BarandazWrapper({ children }) {
 
-  const [activeSidebar, setActiveSidebar] = useState(true);
+  const [activeSidebar, setActiveSidebar] = useState(false);
   const [theme, setTheme] = useState("theme1");
     // const [categoryId, setcategoryId] = useState(params.id)
     const [isClickedIndex,setClickedIndex]=useState(-1)

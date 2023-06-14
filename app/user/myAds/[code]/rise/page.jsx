@@ -1,4 +1,4 @@
-import MyAdsPromotions from "@/components/myads/MyAdsPromotions";
+import MyAdsPromotions from "@/components/Account/myads/MyAdsPromotions";
 
 export default async function page({params}) {
     return (

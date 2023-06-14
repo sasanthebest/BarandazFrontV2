@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useBarandazContext } from "@/context/context";
 import { myAccount, myAdds, myBookmarks, myChambers, myLastSeen } from "@/services/urls";
 import { HiCalendarDays, HiUser } from "react-icons/hi2";
-import { GiBattleship, GiFoldedPaper } from "react-icons/gi";
+import { GiBattleship, GiFoldedPaper, GiNotebook } from "react-icons/gi";
 import { FaSkyatlas } from "react-icons/fa";
 
 import {IoLogOutOutline,IoLogInOutline} from 'react-icons/io5'
@@ -40,6 +40,11 @@ const router=useRouter()
     {
       label:'نشان شده ها',
       icon:FaSkyatlas,
+      href:() => handleMenu(myBookmarks)
+    },
+    {
+      label:'یادداشت های من',
+      icon:GiNotebook,
       href:() => handleMenu(myBookmarks)
     },
     {
@@ -120,7 +125,7 @@ const router=useRouter()
             className="w-screen h-screen top-0 left-0 right-0 bottom-0 fixed"
           ></div>
           {/* content */}
-          <div className="absolute rounded shadow-md shadow-sky-400 w-40 bg-white overflow-hidden left-0 top-12 text-sm z-30">
+          <div className="absolute rounded shadow-md shadow-sky-400 w-44 bg-white overflow-hidden left-0 top-12 text-sm z-30">
             <div className="flex flex-col cursor-pointer w-full">
               {auth === "authenticated" ? (
                   items.map((item,index)=>(

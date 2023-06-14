@@ -1,4 +1,4 @@
-import MyAdsMange from '@/components/myads/MyAdsManage'
+import MyAdsMange from '@/components/Account/myads/MyAdsManage'
 import { getSingleMyAds } from '@/services/userServices'
 import React from 'react'
 

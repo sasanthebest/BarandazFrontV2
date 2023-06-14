@@ -1,9 +1,12 @@
 'use client'
 import { useEffect } from "react";
 import { useBarandazContext } from '@/context/context';
-import { AiOutlineCaretRight } from 'react-icons/ai';
-import { AiOutlineCaretLeft } from 'react-icons/ai';
+import { AiOutlineCaretRight, AiOutlineYoutube } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
+import Footer from "../Footer";
+import Image from "next/image";
+
+
 
 const SidebarContainer = ({ title, children, mobile }) => {
   const { activeSidebar, setActiveSidebar } = useBarandazContext();
@@ -12,35 +15,34 @@ const SidebarContainer = ({ title, children, mobile }) => {
     setActiveSidebar(activeSidebar);
   }, [router.asPath]);
 
+
+
   return (
-    <div className={`${mobile ? "" : "mobmax:hidden"} sticky top-0`}>
-      <div className="flex justify-between h-5v">
-        {activeSidebar && (
-          <div className="pr-4 w-72 text-neutral-500">
-            <h3>{title}</h3>
-          </div>
-        )}
+    <div className={`${mobile ? "" : "mobmax:hidden"} sticky top-0 `}>
+      <div className="flex justify-end h-5v">
         <div>
-          {activeSidebar ? (
             <div
               onClick={() => setActiveSidebar(!activeSidebar)}
-              className="flex justify-center items-center h-6 w-6 sticky bg-sky-500/75 rounded-r-2xl"
-            >
-              <AiOutlineCaretRight size={24} color="#170080" />
+              className="flex justify-end h-6 w-6  bg-white rounded-r-2xl">
+              <AiOutlineCaretRight size={22} className={`bg-white cursor-pointer ${activeSidebar ? 'transform rotate-135 duration-700 ':'transform -rotate-180 duration-700 '}`} />
             </div>
-          ) : (
-            <div
-              className="flex justify-center items-center h-6 w-6 sticky bg-sky-500/75 rounded-l-2xl"
-              onClick={() => setActiveSidebar(!activeSidebar)}
-            >
-              <AiOutlineCaretLeft size={24} color="#170080" />
-            </div>
-          )}
         </div>
       </div>
       {activeSidebar && (
-        <div className="h-80v w-72">
-          <div>{children}</div>
+        <div className="w-72">
+          <div className="pl-3 pr-4">{children}</div>
+        </div>
+      )}
+    {activeSidebar && (
+        <div>
+          <div className="flex flex-row gap-4 items-center justify-center pb-6">
+            <Image className="cursor-pointer" src='/1.png' width={80} height={80}/>
+            <Image className="cursor-pointer" src='/2.png' width={80} height={80}/>
+          </div>
+          <div className="grid grid-cols-1 gap-3">
+
+          <Footer/>
+          </div>
         </div>
       )}
     </div>

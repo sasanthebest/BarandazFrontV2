@@ -1,6 +1,6 @@
 import Button from "@/components/util/Button";
 import EmptyState from "@/components/EmptyState";
-import MyAds from "@/components/myads/MyAds";
+import MyAds from "@/components/Account/myads/MyAds";
 import {getMyAds} from "@/services/userServices";
 
 

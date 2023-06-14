@@ -1,4 +1,4 @@
-import UserInfo from "@/components/myAccount/UserInfo"
+import UserInfo from "@/components/Account/myAccount/UserInfo"
 import { getCurrentUserInfo } from "@/services/userServices"
 
 
