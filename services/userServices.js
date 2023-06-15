@@ -20,7 +20,7 @@ export async function getApiclient(url) {
 }
 
 export async function postApiClient(url,requestBody) {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession(req,res,authOptions)
     const jwt = session?.token?.access
     const data = axios.post(`${baseURL + url}`, requestBody,{
         headers: {

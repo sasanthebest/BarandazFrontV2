@@ -1,10 +1,9 @@
 'use client'
+import {  useEffect, useState } from 'react'
 import { IoLogInOutline, IoLogOutOutline } from "react-icons/io5";
 import { HiCalendarDays, HiUser } from "react-icons/hi2";
 import { FaSkyatlas } from "react-icons/fa";
 import { GiBattleship, GiFoldedPaper, GiNotebook } from "react-icons/gi";
-import { AiOutlineCaretLeft } from 'react-icons/ai';
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import MenuItem from "../MenuItem";
 import { useRouter } from "next/navigation";
 import { myAccount, myAdds, myBookmarks, myChambers, myLastSeen, myNotes } from "@/services/urls";
@@ -44,7 +43,7 @@ const AccountSideBar = () => {
     const authenticatedItems=[
     
         {
-          label:{username},
+          label:`${username}`,
           icon:HiUser,
           href:() => handleMenu(myAccount)
         },
@@ -83,18 +82,20 @@ const AccountSideBar = () => {
          router.push(url);
      }
 
-     useEffect(() => {
-      setUsername(session?.data?.token?.user?.username)
-      setAuth(session.status)
-      },[session.status])
+    //  useEffect(() => {
+    //    setUsername(session?.data?.token?.user?.username);
+    //    setAuth(session.status);
+    //    console.log(session.status);
+    //  }, [session.status]);
 
   useEffect(() => {
-    if (auth === "authenticated"){
-      setItems(authenticatedItems)
-      
+    if (session.status === "authenticated") {
+      setItems(authenticatedItems);
+    } else {
+      setItems(unAuthenticatedItems);
     }
-    setItems(unAuthenticatedItems)
-  }, [])
+    
+  }, [session.status]);
   
 
 

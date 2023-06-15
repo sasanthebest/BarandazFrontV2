@@ -6,6 +6,7 @@ import NavBar from "@/components/Navbar";
 import Provider from "@/components/Provider";
 import ContactInfoModal from "@/components/modals/ContactInfoModal";
 import ToasterProvider from "./providers/ToastProvider";
+import { getAllCategories } from "@/services/getAllCategories";
 
 
 export const metadata = {
@@ -16,18 +17,21 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   // const currentUser=await getCurrentUser()
   // const userInfo=await getCurrentUserInfo()
+  const Categories = await getAllCategories();
+
+
  
 
   return (
     <html lang="fa" dir="rtl" charSet="utf-8">
       <body>
         <Provider>
-        <ToasterProvider/>
-        <NavBar /> 
-         <LoginModal/>
-         <ContactInfoModal/>
+          <ToasterProvider />
+          <NavBar categories={Categories} />
+          <LoginModal />
+          <ContactInfoModal />
           {children}
-          <Footer/>
+          <Footer />
         </Provider>
       </body>
     </html>

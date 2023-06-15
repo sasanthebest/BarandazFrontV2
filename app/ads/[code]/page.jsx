@@ -5,14 +5,13 @@ import { getMyBookMarks } from "@/services/userServices";
 
 export default async function page({ params }) {
   const data = await getSingleAd(params.code);
-  const Categories=await getAllCategories()
+  // const Categories=await getAllCategories()
   const bookmarks = await getMyBookMarks();
   const bookmarkId=bookmarks?.filter(item=>item?.content_type?.id===data.id)[0]?.id
-  // console.log('level1',bookmarkId)
+  console.log('level1',bookmarkId)
 
   // const Cities=await getAllCities()
   return (
-
-    <AdDetailProvider bookmarkId={bookmarkId} categories={Categories} data={data}/>
+    <AdDetailProvider bookmarkId={bookmarkId}  data={data}/>
   )
 }

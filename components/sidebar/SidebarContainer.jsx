@@ -27,7 +27,7 @@ const SidebarContainer = ({ title, children, mobile,littleSideBar }) => {
                 sethasLittleSideBar(!hasLittleSideBar)
               }}
               className="flex justify-end h-6 w-6  bg-white rounded-r-2xl">
-              <AiOutlineCaretRight size={22} className={`bg-white cursor-pointer ${activeSidebar ? 'transform rotate-135 duration-700 ':'transform -rotate-180 duration-700 '}`} />
+              <AiOutlineCaretRight size={22} className={`bg-white cursor-pointer ${activeSidebar ? 'transform rotate-140 duration-700 ':'transform -rotate-180 duration-700 '}`} />
             </div>
         </div>
       </div>

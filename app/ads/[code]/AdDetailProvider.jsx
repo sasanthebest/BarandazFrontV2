@@ -1,22 +1,22 @@
 'use client'
 
 import AdsDetail from '@/components/body/AdsDetail'
-
 import { useBarandazContext } from '@/context/context'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 const AdDetailProvider = ({bookmarkId,categories,data}) => {
   // console.log('level2',bookmarkId)
   // console.log('category from level2:',categories)
-    const {setAllCategories,setAllCities}=useBarandazContext()
+    // const {setAllCategories,setAllCities}=useBarandazContext()
 
-    useEffect(() => {
-      setAllCategories(categories)
-    //   setAllCities(cities)
-    }, [categories,setAllCategories])
+    // useEffect(() => {
+    //   setAllCategories(categories)
+    //   console.log("first:", categories);
+    // }, [])
     
 
   return (
+    // <div>sal</div>
     <AdsDetail bookmarkId={bookmarkId} singleAd={data}/>
   )
 }

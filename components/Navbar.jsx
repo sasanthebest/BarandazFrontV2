@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./util/Logo";
 import UserMenu from "./UserMenu";
 import Button from "./util/Button";
@@ -7,11 +7,19 @@ import HeaderSearch from "./layouts/HeaderSearch";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import ButtonC from "./util/ButtonC";
+import { useBarandazContext } from "@/context/context";
 
 
-const NavBar =() => {
+const NavBar =({categories}) => {
   const router = useRouter()
-  const [theme,setTheme]=useState("theme1")
+  // const [theme, setTheme] = useState("theme1")
+  const { setAllCategories, setAllCities } = useBarandazContext();
+
+    useEffect(() => {
+      setAllCategories(categories);
+      console.log("first:", categories);
+    }, []);
+    
 
   return (
     <div className="w-full h-16 bg-white shadow-md shadow-sky-300 top-0 sticky z-200 ">

@@ -20,16 +20,23 @@ export function BarandazWrapper({ children }) {
   return (
     <AppContext.Provider
       value={{
-        activeSidebar,setActiveSidebar,
-        theme, setTheme,
-        isClickedIndex,setClickedIndex,
-        auth,setAuth,
-        username,setUsername,
+        activeSidebar,
+        setActiveSidebar,
+        theme,
+        setTheme,
+        isClickedIndex,
+        setClickedIndex,
+        auth,
+        setAuth,
+        username,
+        setUsername,
         // categoryId, setcategoryId,
-        allCategories,setAllCategories,
-        allCities,setAllCities,
-        hasLittleSideBar,sethasLittleSideBar
-       
+        allCategories,
+        setAllCategories,
+        allCities,
+        setAllCities,
+        hasLittleSideBar,
+        sethasLittleSideBar,
       }}
     >
       {children}
