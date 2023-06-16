@@ -18,7 +18,10 @@ const Card = ({ item }) => {
   const router=useRouter()
   return (
     <>
-      <div onClick={()=>router.push(`/ads/${item.code}`)}  className={`${styles.card}  rounded`}>
+      <div
+        onClick={() => router.push(`/ads/${item.code}`)}
+        className={`${styles.card}  rounded`}
+      >
         <div className="block relative z-20 h-30v">
           <Image
             className="rounded"
@@ -32,17 +35,13 @@ const Card = ({ item }) => {
         <div className="flex items-start pt-2 h-12v gap-2">
           <div className=" h-full w-full pr-1 ">
             <Link prefetch={false} href={`/ads/${item.code}`}>
-              <h2
-                className="p-0 cursor-pointer"  
-              >
-                {item.title}
-              </h2>
+              <h2 className="p-0 cursor-pointer">{item.title}</h2>
             </Link>
 
             <div className="flex place-items-end absolute bottom-0 w-full">
               <div className="flex justify-between w-full">
                 <div className="flex">
-                  <Location item={item} />
+                  <Location city_name={item.city_name} />
                   <TimeWraper time={item.created_at}></TimeWraper>
                 </div>
                 <div>

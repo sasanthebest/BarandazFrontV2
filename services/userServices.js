@@ -1,6 +1,6 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
 import { getServerSession } from "next-auth"
-import { myAdsUrl,myAdsSingle, myBookmarksUrl, myChambersUrl, userInfo ,baseURL, newBookmark} from "./urls";
+import { myAdsUrl,myAdsSingle, myBookmarksUrl, myChambersUrl, userInfo ,baseURL, newBookmark,deleteBookmarkUrl} from "./urls";
 import axios from "axios";
 
 export async function getApiclient(url) {
@@ -19,21 +19,7 @@ export async function getApiclient(url) {
 
 }
 
-export async function postApiClient(url,requestBody) {
-    const session = await getServerSession(req,res,authOptions)
-    const jwt = session?.token?.access
-    const data = axios.post(`${baseURL + url}`, requestBody,{
-        headers: {
-            Authorization: `jwt ${jwt}`
-        }
-    }).then(res => {
-        return (res.data)
-    }).catch(err => {
-        return null
-    })
-    return data
-    
-}
+
 
 export async function getCurrentUser() {
     const session = await getServerSession(authOptions)
@@ -64,8 +50,35 @@ export async function getMyChambers() {
     return data
 
 }
-
-export async function addBookmark(requestBody){
-    const data= await postApiClient(newBookmark,requestBody)
-    return data
+export async function addBookmark(id, jwt) {
+    const data = {
+        content_type: id,
+    };
+    const res= axios.post(`${baseURL + newBookmark}`, data, {
+        headers: {
+            Authorization: `jwt ${jwt}`
+        }
+    }).then((res) => {
+        // console.log("res2:",res)
+        return res
+    }).catch((err) => {
+        // console.log("err2:",err.response)
+        return err.response
+    })
+    return res
+}
+export async function deleteBookmark(id, jwt) {
+  
+    const res = axios.delete(`${baseURL + deleteBookmarkUrl(id) }`, {
+        headers: {
+            Authorization: `jwt ${jwt}`
+        }
+    }).then((res) => {
+        // console.log("res2:",res)
+        return res
+    }).catch((err) => {
+        // console.log("err2:",err.response)
+        return err.response
+    })
+    return res
 }

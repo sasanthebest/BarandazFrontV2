@@ -3,11 +3,11 @@ import locationpin from "./svg/locationpin.svg";
 
 
 
-const Location = ({ item }) => {
+const Location = ({ city_name }) => {
   return (
     <div className="flex place-items-end ">
       <Image src={locationpin} width={13} height={13} alt="locatin"></Image>
-      <span className="text-xs text-slate-700 pr-0.5 pl-2 ">{item.city_name}</span>
+      <span className="text-xs text-slate-700 pr-0.5 pl-2 ">{city_name}</span>
     </div>
   );
 };

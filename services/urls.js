@@ -18,7 +18,7 @@ export const categoriesUrl = '/categories/';
 export const singleCategory=(slug)=>`/categories/${slug}/`
 export const cities='/cities/'
 export const newBookmark='/bookmarks/'
-export const deleteBookmark=(id)=>`/bookmarks/${id}/`
+export const deleteBookmarkUrl=(id)=>`/bookmarks/${id}/`
 
 // user endpoints:
 export const signUp = '/users/';

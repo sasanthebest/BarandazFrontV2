@@ -8,13 +8,13 @@ import { HiOutlineShare } from "react-icons/hi2";
 import ArrowTiltle from "../../../frontend/components/util/ArrowTiltle";
 import TextInput from "../../../frontend/components/util/TextInput";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import { baseURL, deleteBookmark, newBookmark } from "@/services/urls";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import useLoginModal from "@/hooks/useLoginModal";
-import { addBookmark, getMyBookMarks } from "@/services/userServices";
+import { addBookmark, deleteBookmark } from "@/services/userServices";
+import TimeWraper from "./card/TimeWraper";
+import Location from "./card/Location";
 
 const AdsDetail = ({ singleAd, bookmarkId }) => {
   const [bookMarkId, setbookMarkId] = useState(bookmarkId);
@@ -74,89 +74,52 @@ const AdsDetail = ({ singleAd, bookmarkId }) => {
 //   }, []);
   /////////////////Functions///////////////////////
 
-  const onBookmark = () => {
+  const handleBookmark = () => {
     if (session.status === "unauthenticated") {
       toast.error("لطفا وارد شوید");
       loginModal.onOpen();
     } else if (session.status === "authenticated") {
-      const data = {
-        content_type: id,
-      };
-      const config = {
-        headers: {
-          Authorization: `jwt ${accessToken}`,
-        },
-      };
-      if (bookMarkId!==undefined) {
-        axios
-          .delete(`${baseURL + deleteBookmark(bookMarkId)}`, config)
-            .then((res) => {
-              if(res.status===204){toast.success("آگهی از لیست نشان شده ها خارج شد");
-              setbookMarkId(undefined)
-                    console.log(res)
-              } else if (res.status === 401) {
-                  toast.error("هویت شما اعتبار سنجی نشد")
-
-              } else if (res.status===404) {
-                  toast.error("این آگهی در لیست نشان شده های شما موجود نیست")
-                }else{toast.error("خطایی رخ داده")}
-                
-              
-          })
-        //   .catch((err) => {
-        //       console.log(err);
-        //     setbookMarkId(bookMarkId);
-        //       toast.error("خطای سرور");
-              
-        //   });
+      if (bookMarkId !== undefined) {
+        deleteBookmark(bookMarkId, accessToken).then((res) => {
+          if (res.status === 204) {
+            toast.success("آگهی از لیست نشان شده ها خارج شد");
+            setbookMarkId(undefined);
+            // console.log(res);
+          } else if (res.status === 401) {
+            toast.error("هویت شما اعتبار سنجی نشد");
+          } else if (res.status === 404) {
+            toast.error("این آگهی در لیست نشان شده های شما موجود نیست");
+          } else {
+            toast.error("خطایی رخ داده");
+          }
+        });
       } else if (bookMarkId === undefined) {
-          addBookmark(data)
-        // axios
-        //   .post(`${baseURL + newBookmark}`, data, config)
-            .then((res) => {
-                if(res.status===201){setbookMarkId(res.data.id)
-                // console.log(res)
-                toast.success("نشان شد");
-                    console.log(res)
-                } else if (res.status===400) {
-                    setbookMarkId(undefined)
-                toast.error("خطای سرور");
-                console.log(err)
-                }
-                
-                
-          })
-        //     .catch((err) => {
-              
-        //   });
+        addBookmark(id, accessToken).then((res) => {
+          if (res.status === 201) {
+            setbookMarkId(res.data.id);
+            // console.log("res1:",res);
+            toast.success("نشان شد");
+          } else if (res.status === 400) {
+            setbookMarkId(undefined);
+            toast.error("خطای سرور");
+            // console.log(err)
+          } else if (res.status === 401) {
+            toast.error("هویت شما اعتبار سنجی نشد");
+          } else {
+            toast.error("خطایی رخ داده");
+          }
+        });
       }
     }
-
-    // axios
-    //   .post(`${baseURL + newBookmark}`, data, config)
-    //   .then((res) => {
-    //     toast.success("نشان شد");
-    //   })
-    //   .catch((err) => {
-    //     axios
-    //       .delete(`${baseURL + deleteBookmark(bookmarkId)}`, config)
-    //       .then((res) => {
-    //         toast.success("آگهی از لیست نشان شده ها خارج شد");
-    //       })
-    //       .catch((err) => {
-    //         // console.log(err);
-    //         toast.error("خطای سرور");
-    //       })
-    //   })
   };
+
   return (
-    <>
-      <div className="relative grid grid-cols-1 md:grid-cols-2 w-full h-screen mt-6">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 w-full h-80v pt-6 overflow-y-scroll">
         {/* images sections */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-5 px-2">
           <Image
             alt={title}
-            className="w-full rounded col-span-4"
+            className="w-full rounded col-span-4 "
             src={mainImgSrc}
             width={320}
             height={300}
@@ -191,9 +154,9 @@ const AdsDetail = ({ singleAd, bookmarkId }) => {
           </div>
           <div className="flex flex-row gap-4 items-center justify-end mt-2">
             <FaSkyatlas
-              onClick={onBookmark}
+              onClick={handleBookmark}
               className={`${
-               bookMarkId===undefined ? "text-stone-500" : "text-rose-500"
+                bookMarkId === undefined ? "text-stone-500" : "text-rose-500"
               }  cursor-pointer`}
               size={20}
             />
@@ -207,10 +170,10 @@ const AdsDetail = ({ singleAd, bookmarkId }) => {
           </div>
           <div className="flex flex-row justify-between">
             <div className="relative mt-2 flex flex-row gap-2 items-center justify-start">
-              <FaLocationArrow className="text-sm text-neutral-500" />
-              <p className="text-md text-neutral-600 ">
-                ده دقیقه پیش در {city_name}
-              </p>
+              {/* <FaLocationArrow className="text-sm text-neutral-500" /> */}
+              <TimeWraper time={created_at}></TimeWraper>
+              {/* <p className="text-md text-neutral-600 ">در {city_name}</p> */}
+              <Location city_name={city_name} />
               <span className="text-rose-500 pr-2">{is_urgent && "فوری"}</span>
             </div>
           </div>
@@ -255,7 +218,6 @@ const AdsDetail = ({ singleAd, bookmarkId }) => {
             </div>
         </div>  */}
       </div>
-    </>
   );
 };
 
