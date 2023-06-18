@@ -13,7 +13,8 @@ module.exports = {
     screens: {
       'mob': '414px',
       // => @media (min-width: 992px) { ... }
-      'mobmax': {'max': '415px'},
+      'mobmax': {'max': '516px'},
+      'nav':'525px',
       // => @media (max-width: 639px) { ... }
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
