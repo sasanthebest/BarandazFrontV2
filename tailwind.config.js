@@ -33,6 +33,10 @@ module.exports = {
       extend: {
         strokeWidth: {
           '2': '20px',
+          
+        },
+        width: {
+          '128': '32rem',
         },
         zIndex:{
           "200":"200"

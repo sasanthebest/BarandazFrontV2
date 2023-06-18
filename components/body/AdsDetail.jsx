@@ -14,6 +14,7 @@ import axios from 'axios'
 import { baseURL, deleteBookmark, newBookmark } from '@/services/urls'
 import { toast } from "react-hot-toast"
 import { useRouter } from 'next/navigation'
+import { RWebShare } from 'react-web-share'
 
 // :{adspecification:{title},value}
 const AdsDetail = ({singleAd,bookmarkId}) => {
@@ -21,24 +22,14 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
     const {register,formState:{errors}}=useForm()
     const router=useRouter()
     
-    const {id,title,category,images,description,price,
+    const {id,title,category,images,description,price,code,
         is_exchangeable,is_urgent,city_name,category_name,created_at,show_phone,adspecificvalue}=singleAd
 
     const {allCategories}=useBarandazContext()
-    
     const parenCategory=allCategories.filter((ca)=>ca.id===category.parent)[0]
     const grandPaCategory=allCategories.filter((ca)=>ca.id===parenCategory.parent)[0]
-    const [mainImgSrc,setMainImgSrc]=useState('/j6.jpg')
-    const imgs=[
-        '/j1.jpg',
-        '/j2.jpg',
-        '/j3.jpg',
-        '/j4.jpg',
-        '/j5.jpg',
-        '/j6.jpg',
-        '/j7.jpg',
+    const [mainImgSrc,setMainImgSrc]=useState(images[0]?.image)
 
-    ]
 
     const info=useContactInfoModal()
 
@@ -73,26 +64,53 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
         .finally(()=>router.refresh()
         )
     }
+
   return (
     <>
 
-      <div className='relative grid grid-cols-1 md:grid-cols-2 w-full h-screen mt-6'>
+      <div className='grid grid-cols-1 md:grid-cols-2 w-full h-screen mt-6'>
         
-               {/* images sections */} 
-        <div className='w-full grid grid-cols-1 md:grid-cols-5'>
-            <Image alt={title} className='w-full rounded col-span-4' src={mainImgSrc} width={320} height={300}/>
-            <div  className='col-span-1 flex flex-row md:flex-col gap-1 md:overflow-y-auto overflow-x-auto m-2 md:h-96'>
-                {imgs.map((img,index)=>(
-                    <Image onMouseOver={()=>setMainImgSrc(img)}  alt={title}  key={index} className='rounded hover:opacity-60' src={img} width={100} height={100}/>
-                    ))}
-            </div>
-        </div >
+        {/* images sections */} 
+
+        { images.length!=0 &&  
+            (<div className='
+            flex 
+            flex-col 
+            gap-4 
+            p-2 
+            lg:grid 
+            lg:grid-cols-5'>
+                <div className='relative w-full h-72 lg:col-span-4'>
+                    <div className=''>
+                        <Image alt={title} className='rounded' src={baseURL+mainImgSrc} fill={true}/>
+                    </div>
+                </div>
+
+                <div  className='
+                    flex 
+                    flex-row 
+                    items-center
+                    justify-center
+                    gap-1
+                    lg:flex-col
+                    lg:col-span-1
+                    lg:justify-start
+                    lg:overflow-y-auto
+
+
+    
+                    '>
+                        {images.map((img,index)=>(
+                            <div className='relative w-20 h-20 '>
+                            <Image onMouseOver={()=>setMainImgSrc(img.image)}  alt={title}  key={index} className='rounded hover:opacity-60' src={baseURL + img.image} fill={true}/>
+                        </div>
+                        ))}
+                    </div>
+                </div>
+
+        )}
 
  
-
-
-
-            
         {/* details */}
         <div className='p-2 bg-white w-full'>
             <div className='flex flex-row items-center justify-between'>
@@ -105,8 +123,20 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
                 </div>
             </div>
                     <div className='flex flex-row gap-4 items-center justify-end mt-2'>
-                        <FaSkyatlas onClick={onBookmark} className={`${bookmarkId===undefined?'text-stone-500': 'text-rose-500'} hover:text-stone-700 cursor-pointer`} size={20}/>
-                        <HiOutlineShare className='text-stone-500 hover:text-stone-700 cursor-pointer' size={20}/>
+                        <FaSkyatlas 
+                        onClick={onBookmark} 
+                        className={`${bookmarkId===undefined?'text-stone-500': 'text-rose-500'} hover:text-stone-700 cursor-pointer`} 
+                        size={20}/>
+                        <RWebShare
+                            data={{
+                            text: "barandaz",
+                            url: `http://localhost:3000/ads/${code}`,
+                            title: "barandaz",
+                            }}
+                            onClick={() => console.log("shared successfully!")}
+                        >
+                            <HiOutlineShare className='text-stone-500 hover:text-stone-700 cursor-pointer' size={20}/>
+                        </RWebShare>
                     </div>
             <div className='mt-4'>
                 <p className='text-xl'>{title}</p>
@@ -140,7 +170,7 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
 
             <div className='mt-6'>
                 <p>توضیحات</p>
-                <div className='text-stone-500 pr-5 mt-2'>{description}</div>
+                <div className='text-stone-500 pr-5 mt-2 text-justify'>{description}</div>
             </div>
             <div className='mt-6'>
 
@@ -159,9 +189,6 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
         </div>  */}
     </div>
    
-
-
-
     </>
   )
 }

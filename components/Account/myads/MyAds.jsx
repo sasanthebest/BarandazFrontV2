@@ -1,10 +1,12 @@
 'use client'
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../util/Button";
 import TimeWraper from "../../body/card/TimeWraper";
 import { useRouter } from "next/navigation";
+import { baseURL } from "@/services/urls";
 const MyAds = ({ads}) => {
+
 const router=useRouter()
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 m-5">
@@ -13,7 +15,7 @@ const router=useRouter()
         <div key={index }  className="flex flex-col items-center md:grid md:grid-cols-2 border rounded border-neutral-300">
             {/* card image */}
             <div className="m-3">
-              <Image src='/i.jpg' className="rounded" width={200} height={200}  />
+              <Image alt={ad.title} src={ad.image?baseURL+ad.image:'/logoC.png'} className="rounded" width={100} height={100}  />
             </div>
           {/* card info */}
         <div className="flex flex-col items-center md:items-start gap-3 p-3">

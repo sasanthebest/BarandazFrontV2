@@ -3,10 +3,10 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { BiImageAdd } from 'react-icons/bi'
-import { CiTrash } from 'react-icons/ci'
 import Button from '../util/Button'
 import axios from 'axios'
 import ProgressBar from '../util/ProgressBar'
+import { IoMdTrash } from 'react-icons/io'
 
 const ImageUploader = ({errors,register,set}) => {
   // console.log('err:',errors)
@@ -71,7 +71,7 @@ return (
 
           <ProgressBar size={img.size}/>
     
-          <CiTrash onClick={(e)=>onRemoveImage(img.path)
+          <IoMdTrash onClick={(e)=>onRemoveImage(img.path)
            }
            className='cursor-pointer text-rose-700 hover:text-slate-700'/>
           </div>

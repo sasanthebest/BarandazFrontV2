@@ -2,6 +2,7 @@
 import Image from "next/image";
 import SaveIcon from "../../body/card/SaveIcon";
 import ExpandableText from "../../ExpandeableText";
+import { baseURL } from "@/services/urls";
 
 const MyBookmarks = ({ data }) => {
 
@@ -14,7 +15,7 @@ const MyBookmarks = ({ data }) => {
 
             <div className="flex flex-row gap-1">
               <div className="m-1 ">
-                <Image className="rounded" alt={bookmark.content_type.title} src='/logoC.png' width={80} height={80}/>
+                <Image className="h-full rounded" alt={bookmark.content_type.title} src={bookmark.content_type.image?baseURL+bookmark.content_type.image:'/logoC.png'} width={80} height={80}/>
               </div>
               <div className="flex flex-col gap-2 pt-1">
                   <div className="cursor-pointer hover:text-neutral-400">

@@ -9,6 +9,7 @@ import Button from "../util/Button";
 
 
 export default function MainPage({allAds}) {
+
   if (allAds?.results.length === 0) {
     return (
       <div className="h-96">

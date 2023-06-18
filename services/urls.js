@@ -19,6 +19,7 @@ export const singleCategory=(slug)=>`/categories/${slug}/`
 export const cities='/cities/'
 export const newBookmark='/bookmarks/'
 export const deleteBookmark=(id)=>`/bookmarks/${id}/`
+export const deleteImages=(code,id)=> `/myads/${code}/images/${id}/`
 
 // user endpoints:
 export const signUp = '/users/';

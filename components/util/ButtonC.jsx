@@ -7,7 +7,7 @@ const ButtonC = ({label, onClick}) => {
   return (
     <div
     onClick={onClick}
-     class="
+     className="
     rounded 
     relative 
     inline-flex 
@@ -28,8 +28,8 @@ const ButtonC = ({label, onClick}) => {
     to-sky-300
     border-sky-300
     text-white">
-        <span class="absolute w-0 h-0 transition-all duration-300 ease-out bg-sky-300 rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
-        <span class="relative">{label}</span>
+        <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-sky-300 rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+        <span className="relative">{label}</span>
     </div>
   )
 }
