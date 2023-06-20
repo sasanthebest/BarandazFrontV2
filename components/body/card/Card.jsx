@@ -34,7 +34,7 @@ const Card = ({ item }) => {
         </div>
         <div className="flex items-start pt-2 h-12v gap-2">
           <div className=" h-full w-full pr-1 ">
-            <Link prefetch={false} href={`/ads/${item.code}`}>
+            <Link href={`/ads/${item.code}`}>
               <h2 className="p-0 cursor-pointer">{item.title}</h2>
             </Link>
 

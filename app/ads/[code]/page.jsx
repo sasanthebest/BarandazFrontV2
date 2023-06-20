@@ -1,6 +1,20 @@
 import getSingleAd from "@/services/getSingleAd";
 import { getMyBookMarks } from "@/services/userServices";
-import AdsDetail from "@/components/body/AdsDetail";
+import AdsDetail from "@/components/body/AdsDetail"
+
+// export async function generateMetadata({ params }) {
+//   const data = await getSingleAd(params.code);
+//   return {
+//     title: data.title,
+//     description: data.description,
+//     siteName: "bar-andaz.ir",
+//     locale: "fa_IR",
+//     type: "website",
+//   }
+//   }
+  
+    
+
 
 export default async function page({ params }) {
   const data = await getSingleAd(params.code);
@@ -11,5 +25,6 @@ export default async function page({ params }) {
   // const Cities=await getAllCities()
   return (
     <AdsDetail bookmarkId={bookmarkId} singleAd={data}/>
+ 
   )
 }
