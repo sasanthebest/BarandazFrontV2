@@ -6,11 +6,13 @@ import { getSingleMyAds } from "@/services/userServices"
 
 export default async function page({params}) {
     const singleAd=await getSingleMyAds(params.code)
-    const Categories=await getAllCategories()
-    const Cities=await getAllCities()
+
+
+    // const Categories=await getAllCategories()
+    // const Cities=await getAllCities()
     return (
         // <MyAdsprovider  cities={Cities} categories={Categories} data={singleAd} />   
-        <MyAdsprovider data={singleAd} />   
+        <MyAdsprovider singleAd={singleAd} />   
     )
     
 }

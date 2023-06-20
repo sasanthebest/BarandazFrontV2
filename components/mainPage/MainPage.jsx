@@ -9,10 +9,11 @@ import Button from "../util/Button";
 
 
 export default function MainPage({allAds}) {
+
   if (allAds?.results.length === 0) {
     return (
       <div className="h-96">
-        <div className="text-center text-neutral-500 mt-5">
+        <div className="text-center text-neutral-500 pt-2">
           بارانداز، تجارت خانه ای به وسعت ایران
         </div>
         <div className="flex flex-col justify-center items-center h-full ">
@@ -25,9 +26,9 @@ export default function MainPage({allAds}) {
   }
   return (
     <>
-    <div className="text-center  text-stone-500 mt-5 mb-5">بارانداز،تجارت خانه ای به وسعت ایران</div>
+    <div className="text-center  text-stone-500 pt-2" >بارانداز،تجارت خانه ای به وسعت ایران</div>
       <SidebarContent>
-        <SidebarContainer title="دسته بندی" mobile={false}>
+        <SidebarContainer  title="دسته بندی ها" mobile={false}>
           <Categories/>
         </SidebarContainer>
         <SidebarBodyContainer>

@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import MyAdsUpdate from './MyAdsUpdate'
 
 const MyAdsprovider = ({singleAd}) => {
+
     // console.log(cities)
     // console.log(categories)
     // const {setAllCategories,setAllCities,allCities}=useBarandazContext()
@@ -17,7 +18,7 @@ const MyAdsprovider = ({singleAd}) => {
     
 
   return (
-    <MyAdsUpdate  data={singleAd} />
+    <MyAdsUpdate  singleAd={singleAd} />
   )
 }
 

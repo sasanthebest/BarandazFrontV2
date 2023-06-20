@@ -128,10 +128,3 @@ const AccountSideBar = () => {
 
 export default AccountSideBar
 
-
-
-// { items.map((item,index)=>(
-//     <div key={index} className="hover:bg-slate-100  p-4 text-center">
-//       <item.icon size={20} className="text-stone-400" onClick={item.href} />
-//     </div>
-//   ))}

@@ -19,6 +19,7 @@ const SidebarContainer = ({ title, children, mobile,littleSideBar }) => {
 
   return (
     <div className={`${mobile ? "" : "mobmax:hidden"} sticky top-0 `}>
+      {activeSidebar && <p className="pr-4 text-stone-400">{title}</p>}
       <div className="flex justify-end h-5v">
         <div>
             <div

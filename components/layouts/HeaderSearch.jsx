@@ -5,10 +5,10 @@ const HeaderSearch = () => {
     border-none
     bg-slate-100 
     rounded 
-    h-9 
-    lg:w-96
-    md:w-72 
+    h-11 
     mobmax:w-full 
+    md:w-72 
+    lg:w-96
     px-5 
     flex 
     flex-row 

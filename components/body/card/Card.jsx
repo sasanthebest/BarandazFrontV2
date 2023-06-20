@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 //Componenets
 import SaveIcon from "./SaveIcon";
@@ -11,11 +11,13 @@ import ExpandableText from "@/components/ExpandeableText";
 import { useRouter } from "next/navigation";
 import Location from "./Location";
 import Link from "next/link";
+import { baseURL } from "@/services/urls";
 
 
 
 const Card = ({ item }) => {
   const router=useRouter()
+
   return (
     <>
       <div
@@ -25,10 +27,10 @@ const Card = ({ item }) => {
         <div className="block relative z-20 h-30v">
           <Image
             className="rounded"
-            src="/i.jpg"
+            src={item.image?baseURL+item.image:'/logo2.jpg'}
             alt={item.title}
             fill={true}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           ></Image>
           <SaveIcon item={item}></SaveIcon>
         </div>
