@@ -27,7 +27,8 @@ const Card = ({ item }) => {
         <div className="block relative z-20 h-30v">
           <Image
             className="rounded"
-            src={item.image?baseURL+item.image:'/logo2.jpg'}
+            // src={item.image ? baseURL + item.image : "/logo2.jpg"}
+            src={"/logo2.jpg"}
             alt={item.title}
             fill={true}
             // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
