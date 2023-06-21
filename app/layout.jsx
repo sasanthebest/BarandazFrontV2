@@ -7,7 +7,6 @@ import Provider from "@/components/Provider";
 import ContactInfoModal from "@/components/modals/ContactInfoModal";
 import ToasterProvider from "./providers/ToastProvider";
 
-
 export const metadata = {
   title: "بارانداز - تجارت خانه ای به وسعت ایران",
   description: "created by love ",
@@ -26,7 +25,10 @@ export default async function RootLayout({ children }) {
         <NavBar /> 
          <LoginModal/>
          <ContactInfoModal/>
-          {children}
+
+
+            {children}
+      
           <Footer/>
         </Provider>
       </body>

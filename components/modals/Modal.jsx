@@ -61,7 +61,7 @@ const Modals = ({
               </div>
 
               {/* BODY */}
-              <div className="relative p-3 flex-auto">{body}</div>
+              <div className="relative p-3 flex-auto  min-w-[350px] min-h-[150px]">{body}</div>
               {/* FOOTER */}
               <div className="flex flex-col rounded-b-lg bg-white">{footer}</div>
             </div>

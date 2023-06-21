@@ -10,7 +10,7 @@ export default async function layout({children}) {
     return (
         <>
         <div>{children}</div>
-        <div className='flex flex-row items-center justify-around pb-5'>
+        <div className='flex flex-row items-center justify-around pb-5 mobmax2:hidden'>
             <Footer/>
         </div>
         

@@ -1,18 +1,24 @@
 import React from "react";
-import Test from "@/components/Test";
-import ProgressBar from "@/components/util/ProgressBar";
-import ButtonC from "@/components/util/ButtonC";
-import Image from "next/image";
+import getSingleAd from "@/services/getSingleAd";
+import ImageSlider from "@/components/body/carddetail/ImageSlider";
+import ImageCarousel from "@/components/body/carddetail/ImageCarousel";
 
 
-const page = () => {
+export default async function page () {
+  const data = await getSingleAd('j1KQBOmJaMwycwF8zc');
+
  
   return (
-    <div className="relative flex flex-row justify-center items-center w-52 h-52">
+    <div className=''>
+      {/* <ImageSlider images={data.images}/> */}
+      <div className="max-w-lg">
+        <ImageCarousel images={data.images}/>
+      </div>
 
-      <Image size className="rounded" src='/j6.jpg' fill={true} />
-    </div>
+      </div>
+
+
   );
 };
 
-export default page;
+

@@ -1,6 +1,6 @@
 'use client'
 import { useBarandazContext } from '@/context/context'
-import useContactInfoModal from '@/hooks/useInfoModal'
+import useContactInfoModal from '@/hooks/useContactInfoModal'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -13,25 +13,30 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { baseURL, deleteBookmark, newBookmark } from '@/services/urls'
 import { toast } from "react-hot-toast"
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { RWebShare } from 'react-web-share'
+import ImageSlider from './carddetail/ImageSlider'
+import ButtonC from '../util/ButtonC'
+import { useSession } from 'next-auth/react'
 
 // :{adspecification:{title},value}
 const AdsDetail = ({singleAd,bookmarkId}) => {
     // console.log('level3',bookmarkId)
     const {register,formState:{errors}}=useForm()
     const router=useRouter()
+    const path=usePathname()
+    const session=useSession()
+
     
     const {id,title,category,images,description,price,code,
         is_exchangeable,is_urgent,city_name,category_name,created_at,show_phone,adspecificvalue}=singleAd
 
     const {allCategories}=useBarandazContext()
+    const info=useContactInfoModal()
     const parenCategory=allCategories.filter((ca)=>ca.id===category.parent)[0]
     const grandPaCategory=allCategories.filter((ca)=>ca.id===parenCategory.parent)[0]
-    const [mainImgSrc,setMainImgSrc]=useState(images[0]?.image)
 
 
-    const info=useContactInfoModal()
 
     const onBookmark=()=>{
         const data={
@@ -64,55 +69,27 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
         .finally(()=>router.refresh()
         )
     }
+    const onCall=()=>{
+        console.log(show_phone)
+        if(!show_phone){
+            info.onOpen('hidden')
+        }
+        else{
+
+            info.onOpen(session?.data?.token?.user?.username)
+        }
+    }
 
   return (
     <>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 w-full h-screen mt-6'>
+      <div className='grid grid-cols-1 md:grid-cols-2 w-full h-screen xl:pr-16 xl:pl-16 mt-6 p-2'>
         
         {/* images sections */} 
+        <ImageSlider images={images}/>
 
-        { images.length!=0 &&  
-            (<div className='
-            flex 
-            flex-col 
-            gap-4 
-            p-2 
-            lg:grid 
-            lg:grid-cols-5'>
-                <div className='relative w-full h-72 lg:col-span-4'>
-                    <div className=''>
-                        <Image alt={title} className='rounded' src={baseURL+mainImgSrc} fill={true}/>
-                    </div>
-                </div>
-
-                <div  className='
-                    flex 
-                    flex-row 
-                    items-center
-                    justify-center
-                    gap-1
-                    lg:flex-col
-                    lg:col-span-1
-                    lg:justify-start
-                    lg:overflow-y-auto
-
-
-    
-                    '>
-                        {images.map((img,index)=>(
-                            <div className='relative w-20 h-20 '>
-                            <Image onMouseOver={()=>setMainImgSrc(img.image)}  alt={title}  key={index} className='rounded hover:opacity-60' src={baseURL + img.image} fill={true}/>
-                        </div>
-                        ))}
-                    </div>
-                </div>
-
-        )}
-
- 
         {/* details */}
-        <div className='p-2 bg-white w-full'>
+        <div className='p-2 pt-11 bg-white w-full'>
             <div className='flex flex-row items-center justify-between'>
                 <div className='flex flex-row items-center gap-1'>
                     {grandPaCategory && <ArrowTiltle left title={grandPaCategory.title}/>}
@@ -138,8 +115,12 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
                             <HiOutlineShare className='text-stone-500 hover:text-stone-700 cursor-pointer' size={20}/>
                         </RWebShare>
                     </div>
-            <div className='mt-4'>
+            <div className='flex items-center justify-between mt-4'>
                 <p className='text-xl'>{title}</p>
+                <div className='hidden nav:flex items-center justify-center gap-2 '>
+                    <ButtonC label="چت"/>
+                    <ButtonC onClick={onCall}  label="تماس"/>
+                </div>
             </div>
             <div className='flex flex-row justify-between'>
                 <div className='relative mt-2 flex flex-row gap-2 items-center justify-start'>
@@ -179,6 +160,15 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
         </div>
 
         {/* footer */}
+        <div className='nav:hidden'>
+            {path.includes('ads') 
+                   &&  <div className="z-200 fixed bottom-14 p-2   bg-slate-100 w-full h-16 flex felx-row items-center justify-around">
+                <div onClick={()=>toast.success('chat')} className=" ">چت</div>
+                <div onClick={()=>toast.success('call')} className="  ">تماس</div>
+              </div>}
+        </div>
+
+
  
 
             {/* 
