@@ -30,6 +30,7 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
     
     const {id,title,category,images,description,price,code,
         is_exchangeable,is_urgent,city_name,category_name,created_at,show_phone,adspecificvalue}=singleAd
+    console.log(price)
 
     const {allCategories}=useBarandazContext()
     const info=useContactInfoModal()
@@ -162,7 +163,7 @@ const AdsDetail = ({singleAd,bookmarkId}) => {
         {/* footer */}
         <div className='nav:hidden'>
             {path.includes('ads') 
-                   &&  <div className="z-200 fixed bottom-14 p-2   bg-slate-100 w-full h-16 flex felx-row items-center justify-around">
+                   &&  <div className="z-200 fixed bottom-14 right-0   bg-slate-100 w-full h-16 flex felx-row items-center justify-around">
                 <div onClick={()=>toast.success('chat')} className=" ">چت</div>
                 <div onClick={()=>toast.success('call')} className="  ">تماس</div>
               </div>}

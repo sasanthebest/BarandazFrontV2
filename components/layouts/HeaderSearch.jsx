@@ -1,7 +1,8 @@
-import { RiSearch2Line } from 'react-icons/ri';
+import { RiSearch2Line } from "react-icons/ri";
 const HeaderSearch = () => {
   return (
-    <div className="
+    <div
+      className="
     border-none
     bg-slate-100 
     rounded 
@@ -13,13 +14,17 @@ const HeaderSearch = () => {
     flex 
     flex-row 
     gap-3 
-    items-center ">
-    <div className='border-l-2 pl-1 text-center'>
-      <RiSearch2Line className="text-stone-500"/>
+    items-center "
+    >
+      <input
+        type="text"
+        className="bg-slate-100 outline-none text-sm text-zinc-500 w-full"
+        placeholder="جستجو در بارانداز"
+      ></input>
+      <div className="text-center">
+        <RiSearch2Line className="text-stone-500" />
+      </div>
     </div>
-    <input type="text" className="bg-slate-100 outline-none text-sm text-zinc-500 w-full" placeholder="جستجو در بارانداز"></input>
-    </div>
-
   );
 };
 

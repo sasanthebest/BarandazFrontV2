@@ -13,6 +13,7 @@ export function BarandazWrapper({ children }) {
     const [auth,setAuth]= useState("")
     const [hasLittleSideBar,sethasLittleSideBar]=useState(false)
     const [username, setUsername] = useState("");
+    const [filteredCities,setFilteredCities]=useState(0)
 
 
 
@@ -28,7 +29,8 @@ export function BarandazWrapper({ children }) {
         // categoryId, setcategoryId,
         allCategories,setAllCategories,
         allCities,setAllCities,
-        hasLittleSideBar,sethasLittleSideBar
+        hasLittleSideBar,sethasLittleSideBar,
+        filteredCities,setFilteredCities
        
       }}
     >

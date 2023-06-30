@@ -6,16 +6,20 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useBarandazContext } from "@/context/context";
 import { myAccount, myAdds, myBookmarks, myChambers, myLastSeen, myNotes } from "@/services/urls";
-import { HiCalendarDays, HiUser } from "react-icons/hi2";
+import { HiCalendarDays, HiChatBubbleOvalLeft, HiUser } from "react-icons/hi2";
 import { GiBattleship, GiFoldedPaper, GiNotebook } from "react-icons/gi";
 import { FaSkyatlas } from "react-icons/fa";
 
 import {IoLogOutOutline,IoLogInOutline} from 'react-icons/io5'
+import { MdLocationOn } from "react-icons/md";
+import useCityModal from "@/hooks/useCityModal";
+import { BsChatDots } from "react-icons/bs";
 
 
 const UserMenu = () => {
   
-const { auth, setAuth, username, setUsername } = useBarandazContext();
+const { auth, setAuth, username, setUsername,filteredCities } = useBarandazContext();
+const cityModal=useCityModal()
 const [isOpen, setIsOpen] = useState(false);
 const loginModal = useLoginModal()
 const router=useRouter()
@@ -26,6 +30,11 @@ const router=useRouter()
       label:`${username}`,
       icon:HiUser,
       href:() => handleMenu(myAccount)
+    },
+    {
+      label:'چت',
+      icon:HiChatBubbleOvalLeft,
+      href:() => console.log('entering to the chat')
     },
     {
       label:'آگهی های من',
@@ -106,10 +115,20 @@ const router=useRouter()
 
   return (
     <div className="relative ">
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center justify-between gap-5">
+        <div
+          onClick={()=>cityModal.onOpen()}
+          className=" md:py-1 md:px-2 boder-[1px] border-neutral-200 flex flex-row justify-center
+          items-center gap-1 rounded-full cursor-pointer hover:shadow-md transition text-neutral-400"
+        >
+          <MdLocationOn size={20} />
+          <p className="text-xs">{filteredCities>0? `${filteredCities} شهر` : 'شهرها' }</p>
+        
+        </div>
+
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="p-4 md:py-1 md:px-2 boder-[1px] border-neutral-200 flex flex-row justify-center
+          className=" md:py-1 md:px-2 boder-[1px] border-neutral-200 flex flex-row justify-center
           items-center gap-1 rounded-full cursor-pointer hover:shadow-md transition text-neutral-400"
         >
           <HiUser size={20} />

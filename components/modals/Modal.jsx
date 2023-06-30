@@ -32,38 +32,40 @@ const Modals = ({
   return (
     <>
       <div
-        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed z-50
-          inset-0 outline-none focus:outline-none bg-neutral-800/70"
+        className="justify-center items-center flex overflow-x-hidden fixed z-200 
+          inset-0 outline-none focus:outline-none bg-neutral-700/70 h-full"
       >
-        <div className="relative sm:w-full md:w-4/6 lg:w-2/5 xl:w-2/5 my-6 mx-auto lg:h-auto md:h-auto">
+        {/* modal */}
+        <div className="fixed top-6 w-[90vw] md:w-[70vw] lg:w-[60vw] xl:w-1/4 m-2 ">
           {/* CONTENT */}
 
           <div
-            className={`translate duration-300 h-full
+            className={`translate duration-300 w-full
             ${showModal ? "transalte-y-0" : "translate-y-full"}
             ${showModal ? "opacity-100" : "opacity-0"}
             `}
           >
             <div
-              className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg
-               relative flex flex-col w-full bg-white outline-none focus:outline-none"
+              className="relative translate  border-none rounded-lg shadow-md shadow-sky-300
+                flex flex-col w-full  bg-white outline-none focus:outline-none"
             >
               {/* HEADER */}
-              <div className="flex items-center p-4 rounded-t justify-center relative border-b-[1px]">
-                <button
-                  onClick={handleClose}
-                  className="p-1 border-0 hover:opacity-70 absolute left-3"
-                >
-                  <AiFillCloseCircle color="#eb3458" size={18} />
-                </button>
-
-                <div className="text-lg">{title}</div>
+              <div className="p-4  z-50 ">
+                <div className="flex items-center justify-between">
+                  <div className="text-lg">{title}</div>
+                  <AiFillCloseCircle
+                    className="cursor-pointer"
+                    onClick={handleClose}
+                    color="#eb3458"
+                    size={18}
+                  />
+                </div>
               </div>
 
               {/* BODY */}
-              <div className="relative p-3 flex-auto  min-w-[350px] min-h-[150px]">{body}</div>
+              <div className="p-3 flex-auto h-full ">{body}</div>
               {/* FOOTER */}
-              <div className="flex flex-col rounded-b-lg bg-white">{footer}</div>
+              <div className="bottom-0">{footer}</div>
             </div>
           </div>
         </div>
